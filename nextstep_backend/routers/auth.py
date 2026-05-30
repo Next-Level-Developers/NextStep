@@ -7,6 +7,7 @@ POST /api/v1/auth/token/refresh/
 
 from fastapi import APIRouter, Depends
 from sqlalchemy import select
+from sqlalchemy.orm import selectinload
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from core.database import get_db
@@ -29,7 +30,11 @@ async def _get_or_create_user(db: AsyncSession, firebase_user: dict) -> tuple[Us
     email = firebase_user.get("email", "")
     name = firebase_user.get("name", "") or firebase_user.get("display_name", "")
 
-    stmt = select(User).where(User.firebase_uid == uid)
+    stmt = (
+        select(User)
+        .options(selectinload(User.student_profile))
+        .where(User.firebase_uid == uid)
+    )
     result = await db.execute(stmt)
     user = result.scalar_one_or_none()
 
