@@ -1,0 +1,128 @@
+[
+	{
+		"code": "SC-1",
+		"section": "context",
+		"section_label": "About You",
+		"question_text": "What is your current academic stage?",
+		"question_type": "single_select",
+		"is_scored": false,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Grade 8 or 9 - Still exploring, no stream yet",
+				"dimension_weights": {}
+			},
+			{
+				"index": 1,
+				"text": "Grade 10 - Choosing my stream soon",
+				"dimension_weights": {}
+			},
+			{
+				"index": 2,
+				"text": "Grade 11 or 12 - Science",
+				"dimension_weights": {}
+			},
+			{
+				"index": 3,
+				"text": "Grade 11 or 12 - Commerce",
+				"dimension_weights": {}
+			},
+			{
+				"index": 4,
+				"text": "Grade 11 or 12 - Arts",
+				"dimension_weights": {}
+			},
+			{
+				"index": 5,
+				"text": "College Year 1 or 2",
+				"dimension_weights": {}
+			}
+		]
+	},
+	{
+		"code": "Q1",
+		"section": "free_time",
+		"section_label": "What You Do With Free Time",
+		"question_text": "It's a free Saturday with zero obligations. What are you most likely doing?",
+		"instruction": "Pick the one that feels most like you.",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Drawing, designing, making something visual or creative",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Exploring technology - coding, building apps, tinkering",
+				"dimension_weights": { "T": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Reading, researching, or learning something new",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Helping friends or talking to people",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Planning an event or organizing a project",
+				"dimension_weights": { "E": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Sports, outdoor activity, or hands-on work",
+				"dimension_weights": { "P": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q2",
+		"section": "free_time",
+		"section_label": "What You Do With Free Time",
+		"question_text": "When you watch videos or scroll through content, what do you keep coming back to?",
+		"instruction": "Pick up to 2.",
+		"question_type": "multi_select",
+		"max_selections": 2,
+		"is_scored": true,
+		"is_skippable": true,
+		"options": [
+			{
+				"index": 0,
+				"text": "Behind-the-scenes of films, animation, design, or art",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Technology explainers or coding tutorials",
+				"dimension_weights": { "T": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Science, data, or research content",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "People stories, interviews, or social impact",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Business, startups, or product-building stories",
+				"dimension_weights": { "E": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Sports or fitness content",
+				"dimension_weights": { "P": 1.0 }
+			}
+		]
+	}
+]
