@@ -111,13 +111,65 @@ async def list_recommendations(
 
 @router.post("/regenerate/")
 async def regenerate_recommendations(
+    db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
     """Force-regenerate recommendations."""
-    # In production, this triggers a Celery task
+    # 1. Fetch active interest profile
+    ip_stmt = select(InterestProfile).where(
+        InterestProfile.user_id == current_user.id,
+        InterestProfile.is_active == True,
+    )
+    ip_result = await db.execute(ip_stmt)
+    profile = ip_result.scalar_one_or_none()
+
+    if not profile:
+        raise NexStepException(
+            code="PROFILER_NOT_COMPLETED",
+            message="Complete the interest profiler to see your career matches.",
+            http_status=422,
+        )
+
+    # 2. Delete existing recommendations
+    from sqlalchemy import delete
+    await db.execute(delete(CareerRecommendation).where(CareerRecommendation.interest_profile_id == profile.id))
+
+    # 3. Generate Recommendations
+    from services.matching_engine import compute_match_score
+    
+    careers_stmt = select(Career).where(Career.is_active == True)
+    careers_result = await db.execute(careers_stmt)
+    all_careers = careers_result.scalars().all()
+
+    scored = []
+    for c in all_careers:
+        score, tier, overlap = compute_match_score(
+            profile.dimension_scores, c.dimension_tags, profile.top_dimensions
+        )
+        scored.append((c, score, tier, overlap))
+
+    # Sort by score desc
+    scored.sort(key=lambda x: x[1], reverse=True)
+    top_recs = scored[:15]
+
+    for rank, (career, score, tier, overlap) in enumerate(top_recs, start=1):
+        rec = CareerRecommendation(
+            user_id=current_user.id,
+            interest_profile_id=profile.id,
+            career_id=career.id,
+            match_score=score,
+            match_tier=tier,
+            tag_overlap_count=overlap,
+            display_rank=rank,
+            is_novel=(tier == "discovery_match"),
+        )
+        db.add(rec)
+
+    await db.flush()
+
     return {
         "success": True,
-        "data": {"status": "regenerating", "eta_seconds": 3},
+        "data": {"status": "completed", "eta_seconds": 0},
     }
 
 

@@ -252,6 +252,39 @@ async def complete_session(
         student_profile.profiler_completed = True
         student_profile.profiler_completed_at = now
 
+    # 7. Generate Recommendations
+    from services.matching_engine import compute_match_score
+    from models.recommendation import CareerRecommendation
+    from models.career import Career
+    
+    careers_stmt = select(Career).where(Career.is_active == True)
+    careers_result = await db.execute(careers_stmt)
+    all_careers = careers_result.scalars().all()
+
+    scored = []
+    for c in all_careers:
+        score, tier, overlap = compute_match_score(
+            dimension_scores, c.dimension_tags, top_dimensions
+        )
+        scored.append((c, score, tier, overlap))
+
+    # Sort by score desc, take top 15
+    scored.sort(key=lambda x: x[1], reverse=True)
+    top_recs = scored[:15]
+
+    for rank, (career, score, tier, overlap) in enumerate(top_recs, start=1):
+        rec = CareerRecommendation(
+            user_id=current_user.id,
+            interest_profile_id=profile.id,
+            career_id=career.id,
+            match_score=score,
+            match_tier=tier,
+            tag_overlap_count=overlap,
+            display_rank=rank,
+            is_novel=(tier == "discovery_match"),
+        )
+        db.add(rec)
+
     await db.flush()
 
     return {
@@ -266,8 +299,8 @@ async def complete_session(
                 "top_dimensions": top_dimensions,
                 "computed_at": profile.computed_at,
             },
-            "recommendations_ready": False,
-            "recommendations_eta_seconds": 3,
+            "recommendations_ready": True,
+            "recommendations_eta_seconds": 0,
         },
     }
 

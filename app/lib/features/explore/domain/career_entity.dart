@@ -25,7 +25,7 @@ class CareerDomainEntity with _$CareerDomainEntity {
 @freezed
 class CareerDomainBrief with _$CareerDomainBrief {
   const factory CareerDomainBrief({
-    required String id,
+    @Default('') String id,
     required String slug,
     required String name,
     @JsonKey(name: 'short_name') String? shortName,

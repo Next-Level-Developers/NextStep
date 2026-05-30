@@ -298,6 +298,7 @@ async def get_career_detail(
             "name": career.name,
             "one_liner": career.one_liner,
             "domain": {
+                "id": str(career.domain.id),
                 "slug": career.domain.slug,
                 "name": career.domain.name,
                 "short_name": career.domain.short_name,
