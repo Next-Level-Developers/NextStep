@@ -31,8 +31,21 @@
 
   <title>app</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- Firebase Web SDK -->
+  <!-- Note: Update with your Firebase credentials from firebase_options.dart -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js"></script>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
-</body>
+
+  <!-- Firebase Configuration -->
+  <!-- This config is duplicated in lib/firebase_options.dart for security reasons -->
+  <!-- Update these values from your Firebase Console project settings -->
+  <script>
+    // Initialize Firebase only if needed for web-specific features
+    // Flutter Firebase plugin handles initialization in main.dart
+  </script>
 </html>
