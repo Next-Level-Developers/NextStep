@@ -124,7 +124,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     textAlign: TextAlign.center,
                     style: theme.textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: AppColors.onSurface,
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   const SizedBox(height: AppSpacing.xs),
@@ -132,16 +132,17 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                     'Join NextStep and find your ideal career path',
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium?.copyWith(
-                      color: AppColors.muted,
+                      color: AppColors.textSecondary,
                     ),
                   ),
                   const SizedBox(height: AppSpacing.xl),
 
                   // Fields card
                   Card(
-                    elevation: 2.0,
+                    elevation: 0,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
+                      borderRadius: BorderRadius.circular(20.0),
+                      side: const BorderSide(color: Color(0xFFE8F0FF), width: 1),
                     ),
                     color: Colors.white,
                     child: Padding(
@@ -267,18 +268,18 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   // Divider
                   Row(
                     children: [
-                      const Expanded(child: Divider(color: AppColors.outlineMedium)),
+                      const Expanded(child: Divider(color: Color(0xFFE8F0FF))),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
                         child: Text(
                           'OR',
                           style: theme.textTheme.labelMedium?.copyWith(
-                            color: AppColors.muted,
-                            fontWeight: FontWeight.bold,
+                            color: AppColors.textMuted,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-                      const Expanded(child: Divider(color: AppColors.outlineMedium)),
+                      const Expanded(child: Divider(color: Color(0xFFE8F0FF))),
                     ],
                   ),
                   const SizedBox(height: AppSpacing.lg),

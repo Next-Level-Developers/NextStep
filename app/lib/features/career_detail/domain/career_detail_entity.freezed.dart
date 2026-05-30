@@ -224,6 +224,507 @@ abstract class _RelatedCareer implements RelatedCareer {
       throw _privateConstructorUsedError;
 }
 
+RealPeopleStory _$RealPeopleStoryFromJson(Map<String, dynamic> json) {
+  return _RealPeopleStory.fromJson(json);
+}
+
+/// @nodoc
+mixin _$RealPeopleStory {
+  String get id => throw _privateConstructorUsedError;
+  String get personName => throw _privateConstructorUsedError;
+  String? get personRole => throw _privateConstructorUsedError;
+  String? get personImage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'story_text')
+  String? get storyText => throw _privateConstructorUsedError;
+  @JsonKey(name: 'career_slug')
+  String? get careerSlug => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RealPeopleStoryCopyWith<RealPeopleStory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RealPeopleStoryCopyWith<$Res> {
+  factory $RealPeopleStoryCopyWith(
+          RealPeopleStory value, $Res Function(RealPeopleStory) then) =
+      _$RealPeopleStoryCopyWithImpl<$Res, RealPeopleStory>;
+  @useResult
+  $Res call(
+      {String id,
+      String personName,
+      String? personRole,
+      String? personImage,
+      @JsonKey(name: 'story_text') String? storyText,
+      @JsonKey(name: 'career_slug') String? careerSlug});
+}
+
+/// @nodoc
+class _$RealPeopleStoryCopyWithImpl<$Res, $Val extends RealPeopleStory>
+    implements $RealPeopleStoryCopyWith<$Res> {
+  _$RealPeopleStoryCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? personName = null,
+    Object? personRole = freezed,
+    Object? personImage = freezed,
+    Object? storyText = freezed,
+    Object? careerSlug = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      personName: null == personName
+          ? _value.personName
+          : personName // ignore: cast_nullable_to_non_nullable
+              as String,
+      personRole: freezed == personRole
+          ? _value.personRole
+          : personRole // ignore: cast_nullable_to_non_nullable
+              as String?,
+      personImage: freezed == personImage
+          ? _value.personImage
+          : personImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      storyText: freezed == storyText
+          ? _value.storyText
+          : storyText // ignore: cast_nullable_to_non_nullable
+              as String?,
+      careerSlug: freezed == careerSlug
+          ? _value.careerSlug
+          : careerSlug // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$RealPeopleStoryImplCopyWith<$Res>
+    implements $RealPeopleStoryCopyWith<$Res> {
+  factory _$$RealPeopleStoryImplCopyWith(_$RealPeopleStoryImpl value,
+          $Res Function(_$RealPeopleStoryImpl) then) =
+      __$$RealPeopleStoryImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String personName,
+      String? personRole,
+      String? personImage,
+      @JsonKey(name: 'story_text') String? storyText,
+      @JsonKey(name: 'career_slug') String? careerSlug});
+}
+
+/// @nodoc
+class __$$RealPeopleStoryImplCopyWithImpl<$Res>
+    extends _$RealPeopleStoryCopyWithImpl<$Res, _$RealPeopleStoryImpl>
+    implements _$$RealPeopleStoryImplCopyWith<$Res> {
+  __$$RealPeopleStoryImplCopyWithImpl(
+      _$RealPeopleStoryImpl _value, $Res Function(_$RealPeopleStoryImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? personName = null,
+    Object? personRole = freezed,
+    Object? personImage = freezed,
+    Object? storyText = freezed,
+    Object? careerSlug = freezed,
+  }) {
+    return _then(_$RealPeopleStoryImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      personName: null == personName
+          ? _value.personName
+          : personName // ignore: cast_nullable_to_non_nullable
+              as String,
+      personRole: freezed == personRole
+          ? _value.personRole
+          : personRole // ignore: cast_nullable_to_non_nullable
+              as String?,
+      personImage: freezed == personImage
+          ? _value.personImage
+          : personImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      storyText: freezed == storyText
+          ? _value.storyText
+          : storyText // ignore: cast_nullable_to_non_nullable
+              as String?,
+      careerSlug: freezed == careerSlug
+          ? _value.careerSlug
+          : careerSlug // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RealPeopleStoryImpl implements _RealPeopleStory {
+  const _$RealPeopleStoryImpl(
+      {required this.id,
+      required this.personName,
+      this.personRole,
+      this.personImage,
+      @JsonKey(name: 'story_text') this.storyText,
+      @JsonKey(name: 'career_slug') this.careerSlug});
+
+  factory _$RealPeopleStoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RealPeopleStoryImplFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String personName;
+  @override
+  final String? personRole;
+  @override
+  final String? personImage;
+  @override
+  @JsonKey(name: 'story_text')
+  final String? storyText;
+  @override
+  @JsonKey(name: 'career_slug')
+  final String? careerSlug;
+
+  @override
+  String toString() {
+    return 'RealPeopleStory(id: $id, personName: $personName, personRole: $personRole, personImage: $personImage, storyText: $storyText, careerSlug: $careerSlug)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RealPeopleStoryImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.personName, personName) ||
+                other.personName == personName) &&
+            (identical(other.personRole, personRole) ||
+                other.personRole == personRole) &&
+            (identical(other.personImage, personImage) ||
+                other.personImage == personImage) &&
+            (identical(other.storyText, storyText) ||
+                other.storyText == storyText) &&
+            (identical(other.careerSlug, careerSlug) ||
+                other.careerSlug == careerSlug));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, personName, personRole,
+      personImage, storyText, careerSlug);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RealPeopleStoryImplCopyWith<_$RealPeopleStoryImpl> get copyWith =>
+      __$$RealPeopleStoryImplCopyWithImpl<_$RealPeopleStoryImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RealPeopleStoryImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _RealPeopleStory implements RealPeopleStory {
+  const factory _RealPeopleStory(
+          {required final String id,
+          required final String personName,
+          final String? personRole,
+          final String? personImage,
+          @JsonKey(name: 'story_text') final String? storyText,
+          @JsonKey(name: 'career_slug') final String? careerSlug}) =
+      _$RealPeopleStoryImpl;
+
+  factory _RealPeopleStory.fromJson(Map<String, dynamic> json) =
+      _$RealPeopleStoryImpl.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get personName;
+  @override
+  String? get personRole;
+  @override
+  String? get personImage;
+  @override
+  @JsonKey(name: 'story_text')
+  String? get storyText;
+  @override
+  @JsonKey(name: 'career_slug')
+  String? get careerSlug;
+  @override
+  @JsonKey(ignore: true)
+  _$$RealPeopleStoryImplCopyWith<_$RealPeopleStoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+LearningResource _$LearningResourceFromJson(Map<String, dynamic> json) {
+  return _LearningResource.fromJson(json);
+}
+
+/// @nodoc
+mixin _$LearningResource {
+  String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get resourceType =>
+      throw _privateConstructorUsedError; // 'course', 'article', 'video', 'book'
+  String? get url => throw _privateConstructorUsedError;
+  String? get provider => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LearningResourceCopyWith<LearningResource> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LearningResourceCopyWith<$Res> {
+  factory $LearningResourceCopyWith(
+          LearningResource value, $Res Function(LearningResource) then) =
+      _$LearningResourceCopyWithImpl<$Res, LearningResource>;
+  @useResult
+  $Res call(
+      {String id,
+      String title,
+      String? description,
+      String? resourceType,
+      String? url,
+      String? provider});
+}
+
+/// @nodoc
+class _$LearningResourceCopyWithImpl<$Res, $Val extends LearningResource>
+    implements $LearningResourceCopyWith<$Res> {
+  _$LearningResourceCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? description = freezed,
+    Object? resourceType = freezed,
+    Object? url = freezed,
+    Object? provider = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      resourceType: freezed == resourceType
+          ? _value.resourceType
+          : resourceType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      provider: freezed == provider
+          ? _value.provider
+          : provider // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$LearningResourceImplCopyWith<$Res>
+    implements $LearningResourceCopyWith<$Res> {
+  factory _$$LearningResourceImplCopyWith(_$LearningResourceImpl value,
+          $Res Function(_$LearningResourceImpl) then) =
+      __$$LearningResourceImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String title,
+      String? description,
+      String? resourceType,
+      String? url,
+      String? provider});
+}
+
+/// @nodoc
+class __$$LearningResourceImplCopyWithImpl<$Res>
+    extends _$LearningResourceCopyWithImpl<$Res, _$LearningResourceImpl>
+    implements _$$LearningResourceImplCopyWith<$Res> {
+  __$$LearningResourceImplCopyWithImpl(_$LearningResourceImpl _value,
+      $Res Function(_$LearningResourceImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? description = freezed,
+    Object? resourceType = freezed,
+    Object? url = freezed,
+    Object? provider = freezed,
+  }) {
+    return _then(_$LearningResourceImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      resourceType: freezed == resourceType
+          ? _value.resourceType
+          : resourceType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      provider: freezed == provider
+          ? _value.provider
+          : provider // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$LearningResourceImpl implements _LearningResource {
+  const _$LearningResourceImpl(
+      {required this.id,
+      required this.title,
+      this.description,
+      this.resourceType,
+      this.url,
+      this.provider});
+
+  factory _$LearningResourceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LearningResourceImplFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String title;
+  @override
+  final String? description;
+  @override
+  final String? resourceType;
+// 'course', 'article', 'video', 'book'
+  @override
+  final String? url;
+  @override
+  final String? provider;
+
+  @override
+  String toString() {
+    return 'LearningResource(id: $id, title: $title, description: $description, resourceType: $resourceType, url: $url, provider: $provider)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LearningResourceImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.resourceType, resourceType) ||
+                other.resourceType == resourceType) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.provider, provider) ||
+                other.provider == provider));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, title, description, resourceType, url, provider);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LearningResourceImplCopyWith<_$LearningResourceImpl> get copyWith =>
+      __$$LearningResourceImplCopyWithImpl<_$LearningResourceImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$LearningResourceImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _LearningResource implements LearningResource {
+  const factory _LearningResource(
+      {required final String id,
+      required final String title,
+      final String? description,
+      final String? resourceType,
+      final String? url,
+      final String? provider}) = _$LearningResourceImpl;
+
+  factory _LearningResource.fromJson(Map<String, dynamic> json) =
+      _$LearningResourceImpl.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get title;
+  @override
+  String? get description;
+  @override
+  String? get resourceType;
+  @override // 'course', 'article', 'video', 'book'
+  String? get url;
+  @override
+  String? get provider;
+  @override
+  @JsonKey(ignore: true)
+  _$$LearningResourceImplCopyWith<_$LearningResourceImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 CareerDetailEntity _$CareerDetailEntityFromJson(Map<String, dynamic> json) {
   return _CareerDetailEntity.fromJson(json);
 }
@@ -262,6 +763,12 @@ mixin _$CareerDetailEntity {
   String? get lastReviewedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'related_careers')
   List<RelatedCareer> get relatedCareers => throw _privateConstructorUsedError;
+  @JsonKey(name: 'real_people_stories')
+  List<RealPeopleStory> get realPeopleStories =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: 'learning_resources')
+  List<LearningResource> get learningResources =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: 'is_saved')
   bool get isSaved => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_match_score')
@@ -298,6 +805,10 @@ abstract class $CareerDetailEntityCopyWith<$Res> {
       @JsonKey(name: 'is_emerging') bool isEmerging,
       @JsonKey(name: 'last_reviewed_at') String? lastReviewedAt,
       @JsonKey(name: 'related_careers') List<RelatedCareer> relatedCareers,
+      @JsonKey(name: 'real_people_stories')
+      List<RealPeopleStory> realPeopleStories,
+      @JsonKey(name: 'learning_resources')
+      List<LearningResource> learningResources,
       @JsonKey(name: 'is_saved') bool isSaved,
       @JsonKey(name: 'user_match_score') int? userMatchScore});
 
@@ -335,6 +846,8 @@ class _$CareerDetailEntityCopyWithImpl<$Res, $Val extends CareerDetailEntity>
     Object? isEmerging = null,
     Object? lastReviewedAt = freezed,
     Object? relatedCareers = null,
+    Object? realPeopleStories = null,
+    Object? learningResources = null,
     Object? isSaved = null,
     Object? userMatchScore = freezed,
   }) {
@@ -411,6 +924,14 @@ class _$CareerDetailEntityCopyWithImpl<$Res, $Val extends CareerDetailEntity>
           ? _value.relatedCareers
           : relatedCareers // ignore: cast_nullable_to_non_nullable
               as List<RelatedCareer>,
+      realPeopleStories: null == realPeopleStories
+          ? _value.realPeopleStories
+          : realPeopleStories // ignore: cast_nullable_to_non_nullable
+              as List<RealPeopleStory>,
+      learningResources: null == learningResources
+          ? _value.learningResources
+          : learningResources // ignore: cast_nullable_to_non_nullable
+              as List<LearningResource>,
       isSaved: null == isSaved
           ? _value.isSaved
           : isSaved // ignore: cast_nullable_to_non_nullable
@@ -462,6 +983,10 @@ abstract class _$$CareerDetailEntityImplCopyWith<$Res>
       @JsonKey(name: 'is_emerging') bool isEmerging,
       @JsonKey(name: 'last_reviewed_at') String? lastReviewedAt,
       @JsonKey(name: 'related_careers') List<RelatedCareer> relatedCareers,
+      @JsonKey(name: 'real_people_stories')
+      List<RealPeopleStory> realPeopleStories,
+      @JsonKey(name: 'learning_resources')
+      List<LearningResource> learningResources,
       @JsonKey(name: 'is_saved') bool isSaved,
       @JsonKey(name: 'user_match_score') int? userMatchScore});
 
@@ -498,6 +1023,8 @@ class __$$CareerDetailEntityImplCopyWithImpl<$Res>
     Object? isEmerging = null,
     Object? lastReviewedAt = freezed,
     Object? relatedCareers = null,
+    Object? realPeopleStories = null,
+    Object? learningResources = null,
     Object? isSaved = null,
     Object? userMatchScore = freezed,
   }) {
@@ -574,6 +1101,14 @@ class __$$CareerDetailEntityImplCopyWithImpl<$Res>
           ? _value._relatedCareers
           : relatedCareers // ignore: cast_nullable_to_non_nullable
               as List<RelatedCareer>,
+      realPeopleStories: null == realPeopleStories
+          ? _value._realPeopleStories
+          : realPeopleStories // ignore: cast_nullable_to_non_nullable
+              as List<RealPeopleStory>,
+      learningResources: null == learningResources
+          ? _value._learningResources
+          : learningResources // ignore: cast_nullable_to_non_nullable
+              as List<LearningResource>,
       isSaved: null == isSaved
           ? _value.isSaved
           : isSaved // ignore: cast_nullable_to_non_nullable
@@ -611,12 +1146,18 @@ class _$CareerDetailEntityImpl implements _CareerDetailEntity {
       @JsonKey(name: 'last_reviewed_at') this.lastReviewedAt,
       @JsonKey(name: 'related_careers')
       final List<RelatedCareer> relatedCareers = const [],
+      @JsonKey(name: 'real_people_stories')
+      final List<RealPeopleStory> realPeopleStories = const [],
+      @JsonKey(name: 'learning_resources')
+      final List<LearningResource> learningResources = const [],
       @JsonKey(name: 'is_saved') this.isSaved = false,
       @JsonKey(name: 'user_match_score') this.userMatchScore})
       : _dimensionTags = dimensionTags,
         _skillsNeeded = skillsNeeded,
         _entryPaths = entryPaths,
-        _relatedCareers = relatedCareers;
+        _relatedCareers = relatedCareers,
+        _realPeopleStories = realPeopleStories,
+        _learningResources = learningResources;
 
   factory _$CareerDetailEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$CareerDetailEntityImplFromJson(json);
@@ -695,6 +1236,26 @@ class _$CareerDetailEntityImpl implements _CareerDetailEntity {
     return EqualUnmodifiableListView(_relatedCareers);
   }
 
+  final List<RealPeopleStory> _realPeopleStories;
+  @override
+  @JsonKey(name: 'real_people_stories')
+  List<RealPeopleStory> get realPeopleStories {
+    if (_realPeopleStories is EqualUnmodifiableListView)
+      return _realPeopleStories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_realPeopleStories);
+  }
+
+  final List<LearningResource> _learningResources;
+  @override
+  @JsonKey(name: 'learning_resources')
+  List<LearningResource> get learningResources {
+    if (_learningResources is EqualUnmodifiableListView)
+      return _learningResources;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_learningResources);
+  }
+
   @override
   @JsonKey(name: 'is_saved')
   final bool isSaved;
@@ -704,7 +1265,7 @@ class _$CareerDetailEntityImpl implements _CareerDetailEntity {
 
   @override
   String toString() {
-    return 'CareerDetailEntity(id: $id, slug: $slug, name: $name, oneLiner: $oneLiner, domain: $domain, dimensionTags: $dimensionTags, indiaViability: $indiaViability, futureScore: $futureScore, futureScoreReasoning: $futureScoreReasoning, typicalDay: $typicalDay, skillsNeeded: $skillsNeeded, entryPaths: $entryPaths, salaryEntryLpa: $salaryEntryLpa, salaryMidLpa: $salaryMidLpa, salarySeniorLpa: $salarySeniorLpa, isEmerging: $isEmerging, lastReviewedAt: $lastReviewedAt, relatedCareers: $relatedCareers, isSaved: $isSaved, userMatchScore: $userMatchScore)';
+    return 'CareerDetailEntity(id: $id, slug: $slug, name: $name, oneLiner: $oneLiner, domain: $domain, dimensionTags: $dimensionTags, indiaViability: $indiaViability, futureScore: $futureScore, futureScoreReasoning: $futureScoreReasoning, typicalDay: $typicalDay, skillsNeeded: $skillsNeeded, entryPaths: $entryPaths, salaryEntryLpa: $salaryEntryLpa, salaryMidLpa: $salaryMidLpa, salarySeniorLpa: $salarySeniorLpa, isEmerging: $isEmerging, lastReviewedAt: $lastReviewedAt, relatedCareers: $relatedCareers, realPeopleStories: $realPeopleStories, learningResources: $learningResources, isSaved: $isSaved, userMatchScore: $userMatchScore)';
   }
 
   @override
@@ -744,6 +1305,10 @@ class _$CareerDetailEntityImpl implements _CareerDetailEntity {
                 other.lastReviewedAt == lastReviewedAt) &&
             const DeepCollectionEquality()
                 .equals(other._relatedCareers, _relatedCareers) &&
+            const DeepCollectionEquality()
+                .equals(other._realPeopleStories, _realPeopleStories) &&
+            const DeepCollectionEquality()
+                .equals(other._learningResources, _learningResources) &&
             (identical(other.isSaved, isSaved) || other.isSaved == isSaved) &&
             (identical(other.userMatchScore, userMatchScore) ||
                 other.userMatchScore == userMatchScore));
@@ -771,6 +1336,8 @@ class _$CareerDetailEntityImpl implements _CareerDetailEntity {
         isEmerging,
         lastReviewedAt,
         const DeepCollectionEquality().hash(_relatedCareers),
+        const DeepCollectionEquality().hash(_realPeopleStories),
+        const DeepCollectionEquality().hash(_learningResources),
         isSaved,
         userMatchScore
       ]);
@@ -812,6 +1379,10 @@ abstract class _CareerDetailEntity implements CareerDetailEntity {
           @JsonKey(name: 'last_reviewed_at') final String? lastReviewedAt,
           @JsonKey(name: 'related_careers')
           final List<RelatedCareer> relatedCareers,
+          @JsonKey(name: 'real_people_stories')
+          final List<RealPeopleStory> realPeopleStories,
+          @JsonKey(name: 'learning_resources')
+          final List<LearningResource> learningResources,
           @JsonKey(name: 'is_saved') final bool isSaved,
           @JsonKey(name: 'user_match_score') final int? userMatchScore}) =
       _$CareerDetailEntityImpl;
@@ -869,6 +1440,12 @@ abstract class _CareerDetailEntity implements CareerDetailEntity {
   @override
   @JsonKey(name: 'related_careers')
   List<RelatedCareer> get relatedCareers;
+  @override
+  @JsonKey(name: 'real_people_stories')
+  List<RealPeopleStory> get realPeopleStories;
+  @override
+  @JsonKey(name: 'learning_resources')
+  List<LearningResource> get learningResources;
   @override
   @JsonKey(name: 'is_saved')
   bool get isSaved;

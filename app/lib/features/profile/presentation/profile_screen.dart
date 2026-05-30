@@ -2,12 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:share_plus/share_plus.dart';
 import '../../../../core/router/route_names.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/widgets/ns_button.dart';
 import '../../../../core/widgets/ns_snackbar.dart';
 import '../../auth/presentation/auth_provider.dart';
+import '../../parent_view/presentation/parent_view_provider.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
@@ -40,6 +42,57 @@ class ProfileScreen extends ConsumerWidget {
       if (context.mounted) {
         NSSnackbar.showSuccess(context, 'Signed out successfully.');
         context.go(RouteNames.login);
+      }
+    }
+  }
+
+  void _handleShareWithParents(BuildContext context, WidgetRef ref) async {
+    // Show loading dialog
+    if (!context.mounted) return;
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const AlertDialog(
+        content: SizedBox(
+          height: 60,
+          child: Center(child: CircularProgressIndicator()),
+        ),
+      ),
+    );
+
+    try {
+      // Generate share token
+      await ref
+          .read(generateShareTokenProvider.notifier)
+          .generate();
+
+      if (!context.mounted) return;
+      Navigator.pop(context); // Close loading dialog
+
+      final tokenAsync = ref.read(generateShareTokenProvider);
+      final token = tokenAsync.value;
+
+      if (token != null && token.isNotEmpty) {
+        // Create deep link
+        const String appLink = 'https://nextstep.app';
+        final deepLink =
+            '$appLink/share/$token';
+
+        // Share the link
+        await Share.share(
+          'Check out my career discoveries on NextStep! 🚀\n\n$deepLink\n\nDownload NextStep to explore your own career path.',
+          subject: 'NextStep Career Share',
+        );
+      } else {
+        if (context.mounted) {
+          NSSnackbar.showError(
+              context, 'Failed to generate share link. Please try again.');
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        Navigator.pop(context); // Close loading dialog
+        NSSnackbar.showError(context, 'Error: ${e.toString()}');
       }
     }
   }
@@ -165,6 +218,13 @@ class ProfileScreen extends ConsumerWidget {
                     title: const Text('Subscription Plans'),
                     trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 16.0),
                     onTap: () => context.push(RouteNames.profileSubscription),
+                  ),
+                  const Divider(height: 1),
+                  ListTile(
+                    leading: const Icon(Icons.share_outlined, color: AppColors.primary),
+                    title: const Text('Share with Parents'),
+                    trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 16.0),
+                    onTap: () => _handleShareWithParents(context, ref),
                   ),
                   const Divider(height: 1),
                   ListTile(

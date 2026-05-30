@@ -22,6 +22,50 @@ Map<String, dynamic> _$$RelatedCareerImplToJson(_$RelatedCareerImpl instance) =>
       'future_score': instance.futureScore,
     };
 
+_$RealPeopleStoryImpl _$$RealPeopleStoryImplFromJson(
+        Map<String, dynamic> json) =>
+    _$RealPeopleStoryImpl(
+      id: json['id'] as String,
+      personName: json['personName'] as String,
+      personRole: json['personRole'] as String?,
+      personImage: json['personImage'] as String?,
+      storyText: json['story_text'] as String?,
+      careerSlug: json['career_slug'] as String?,
+    );
+
+Map<String, dynamic> _$$RealPeopleStoryImplToJson(
+        _$RealPeopleStoryImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'personName': instance.personName,
+      'personRole': instance.personRole,
+      'personImage': instance.personImage,
+      'story_text': instance.storyText,
+      'career_slug': instance.careerSlug,
+    };
+
+_$LearningResourceImpl _$$LearningResourceImplFromJson(
+        Map<String, dynamic> json) =>
+    _$LearningResourceImpl(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      description: json['description'] as String?,
+      resourceType: json['resourceType'] as String?,
+      url: json['url'] as String?,
+      provider: json['provider'] as String?,
+    );
+
+Map<String, dynamic> _$$LearningResourceImplToJson(
+        _$LearningResourceImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'description': instance.description,
+      'resourceType': instance.resourceType,
+      'url': instance.url,
+      'provider': instance.provider,
+    };
+
 _$CareerDetailEntityImpl _$$CareerDetailEntityImplFromJson(
         Map<String, dynamic> json) =>
     _$CareerDetailEntityImpl(
@@ -57,6 +101,14 @@ _$CareerDetailEntityImpl _$$CareerDetailEntityImplFromJson(
               ?.map((e) => RelatedCareer.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      realPeopleStories: (json['real_people_stories'] as List<dynamic>?)
+              ?.map((e) => RealPeopleStory.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      learningResources: (json['learning_resources'] as List<dynamic>?)
+              ?.map((e) => LearningResource.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       isSaved: json['is_saved'] as bool? ?? false,
       userMatchScore: (json['user_match_score'] as num?)?.toInt(),
     );
@@ -82,6 +134,8 @@ Map<String, dynamic> _$$CareerDetailEntityImplToJson(
       'is_emerging': instance.isEmerging,
       'last_reviewed_at': instance.lastReviewedAt,
       'related_careers': instance.relatedCareers,
+      'real_people_stories': instance.realPeopleStories,
+      'learning_resources': instance.learningResources,
       'is_saved': instance.isSaved,
       'user_match_score': instance.userMatchScore,
     };

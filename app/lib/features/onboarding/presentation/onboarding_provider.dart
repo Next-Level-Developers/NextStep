@@ -68,6 +68,8 @@ class OnboardingState {
 
 @Riverpod(keepAlive: true)
 class OnboardingNotifier extends _$OnboardingNotifier {
+  Timer? _autoAdvanceTimer;
+
   @override
   FutureOr<OnboardingState> build() async {
     return OnboardingState();
@@ -123,6 +125,7 @@ class OnboardingNotifier extends _$OnboardingNotifier {
   }
 
   /// Selects an option index for the current question
+  /// Auto-advances to the next question after 300ms for smooth animation
   void selectOption(int optionIndex) {
     final currentState = state.value!;
     final currentQuestion = currentState.currentQuestion;
@@ -133,7 +136,7 @@ class OnboardingNotifier extends _$OnboardingNotifier {
     final currentAnswers = List<int>.from(currentState.answers[currentCode] ?? []);
 
     if (currentQuestion.questionType == 'single_select') {
-      // Single select replacement
+      // Single select: replace with new selection
       state = AsyncValue.data(
         currentState.copyWith(
           answers: {
@@ -142,12 +145,8 @@ class OnboardingNotifier extends _$OnboardingNotifier {
           },
         ),
       );
-      // Auto-advance single-select questions with a short delay for smooth animation
-      Future.delayed(const Duration(milliseconds: 300), () {
-        nextQuestion();
-      });
     } else {
-      // Multi-select toggle
+      // Multi-select or multi_select_unlimited: toggle selection
       if (currentAnswers.contains(optionIndex)) {
         currentAnswers.remove(optionIndex);
       } else {
@@ -165,10 +164,23 @@ class OnboardingNotifier extends _$OnboardingNotifier {
         ),
       );
     }
+
+    // Cancel any existing auto-advance timer
+    _autoAdvanceTimer?.cancel();
+
+    // Auto-advance to next question for ALL question types with 300ms delay for smooth animation
+    _autoAdvanceTimer = Timer(const Duration(milliseconds: 300), () {
+      _autoAdvanceTimer = null;
+      nextQuestion();
+    });
   }
 
   /// Submits the current question answer and advances
   Future<void> nextQuestion() async {
+    // Cancel any pending auto-advance timer when manually advancing
+    _autoAdvanceTimer?.cancel();
+    _autoAdvanceTimer = null;
+
     final currentState = state.value!;
     final currentQuestion = currentState.currentQuestion;
     if (currentQuestion == null) return;
@@ -216,6 +228,10 @@ class OnboardingNotifier extends _$OnboardingNotifier {
 
   /// Skips the current question
   Future<void> skipQuestion() async {
+    // Cancel any pending auto-advance timer when manually skipping
+    _autoAdvanceTimer?.cancel();
+    _autoAdvanceTimer = null;
+
     final currentState = state.value!;
     final currentQuestion = currentState.currentQuestion;
     if (currentQuestion == null) return;

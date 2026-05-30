@@ -1,6 +1,7 @@
 // lib/core/theme/app_typography.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'app_colors.dart';
 
 class AppTypography {
   AppTypography._();
@@ -8,92 +9,107 @@ class AppTypography {
   static TextTheme get textTheme {
     return TextTheme(
       // Hero / Splash
-      displayLarge: GoogleFonts.nunito(
+      displayLarge: GoogleFonts.poppins(
         fontSize: 32,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w700,
         letterSpacing: -0.5,
         height: 1.2,
+        color: AppColors.textPrimary,
       ),
-      displayMedium: GoogleFonts.nunito(
+      displayMedium: GoogleFonts.poppins(
         fontSize: 28,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w700,
         letterSpacing: -0.3,
         height: 1.25,
+        color: AppColors.textPrimary,
       ),
-      displaySmall: GoogleFonts.nunito(
+      displaySmall: GoogleFonts.poppins(
         fontSize: 24,
         fontWeight: FontWeight.w700,
         height: 1.3,
+        color: AppColors.textPrimary,
       ),
 
       // Screen titles
-      headlineLarge: GoogleFonts.nunito(
+      headlineLarge: GoogleFonts.poppins(
         fontSize: 26,
         fontWeight: FontWeight.w700,
         height: 1.3,
+        color: AppColors.textPrimary,
       ),
-      headlineMedium: GoogleFonts.nunito(
+      headlineMedium: GoogleFonts.poppins(
         fontSize: 22,
-        fontWeight: FontWeight.w700,
-        letterSpacing: -0.2,
+        fontWeight: FontWeight.w600,
+        letterSpacing: -0.3,
         height: 1.35,
+        color: AppColors.textPrimary,
       ),
-      headlineSmall: GoogleFonts.nunito(
+      headlineSmall: GoogleFonts.poppins(
         fontSize: 20,
         fontWeight: FontWeight.w600,
         height: 1.4,
+        color: AppColors.textPrimary,
       ),
 
       // Card titles
-      titleLarge: GoogleFonts.nunito(
+      titleLarge: GoogleFonts.poppins(
         fontSize: 18,
-        fontWeight: FontWeight.w700,
-        height: 1.4,
-      ),
-      titleMedium: GoogleFonts.nunito(
-        fontSize: 16,
         fontWeight: FontWeight.w600,
-        height: 1.45,
+        height: 1.4,
+        color: AppColors.textPrimary,
       ),
-      titleSmall: GoogleFonts.nunito(
+      titleMedium: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        height: 1.45,
+        color: AppColors.textPrimary,
+      ),
+      titleSmall: GoogleFonts.poppins(
         fontSize: 14,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.1,
         height: 1.45,
+        color: AppColors.textPrimary,
       ),
 
       // Body
-      bodyLarge: GoogleFonts.nunito(
+      bodyLarge: GoogleFonts.poppins(
         fontSize: 16,
         fontWeight: FontWeight.w400,
         height: 1.6,
+        color: AppColors.textSecondary,
       ),
-      bodyMedium: GoogleFonts.nunito(
+      bodyMedium: GoogleFonts.poppins(
         fontSize: 14,
         fontWeight: FontWeight.w400,
-        height: 1.55,
+        height: 1.5,
+        color: AppColors.textSecondary,
       ),
-      bodySmall: GoogleFonts.nunito(
+      bodySmall: GoogleFonts.poppins(
         fontSize: 12,
         fontWeight: FontWeight.w400,
         height: 1.5,
+        color: AppColors.textSecondary,
       ),
 
-      // Labels / chips / badges
-      labelLarge: GoogleFonts.nunito(
-        fontSize: 14,
+      // Labels
+      labelLarge: GoogleFonts.poppins(
+        fontSize: 15,
         fontWeight: FontWeight.w600,
-        letterSpacing: 0.1,
+        height: 1.4,
+        color: AppColors.textOnPrimary,
       ),
-      labelMedium: GoogleFonts.nunito(
+      labelMedium: GoogleFonts.poppins(
         fontSize: 12,
-        fontWeight: FontWeight.w600,
-        letterSpacing: 0.2,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0.4,
+        color: AppColors.textMuted,
       ),
-      labelSmall: GoogleFonts.nunito(
-        fontSize: 10,
-        fontWeight: FontWeight.w600,
-        letterSpacing: 0.3,
+      labelSmall: GoogleFonts.poppins(
+        fontSize: 11,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0.5,
+        color: AppColors.textMuted,
       ),
     );
   }

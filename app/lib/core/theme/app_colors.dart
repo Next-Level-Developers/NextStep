@@ -5,12 +5,12 @@ class AppColors {
   AppColors._();
 
   // ── Brand ──────────────────────────────────────────────────────────────────
-  static const Color primary = Color(0xFF6C63FF);
-  static const Color primaryLight = Color(0xFFEDE9FF);
-  static const Color primaryDark = Color(0xFF4A42D6);
+  static const Color primary = Color(0xFF2D8EFF);
+  static const Color primaryLight = Color(0xFFEAF3FF);
+  static const Color primaryDark = Color(0xFF1A6FD4);
 
-  static const Color secondary = Color(0xFFFF6584);
-  static const Color secondaryLight = Color(0xFFFFE8ED);
+  static const Color secondary = Color(0xFF2D8EFF);
+  static const Color secondaryLight = Color(0xFFEAF3FF);
 
   // ── Semantic ───────────────────────────────────────────────────────────────
   static const Color success = Color(0xFF22C55E);
@@ -22,17 +22,24 @@ class AppColors {
 
   // ── Surface & Background ───────────────────────────────────────────────────
   static const Color surface = Color(0xFFFFFFFF);
-  static const Color background = Color(0xFFF9F9FB);
-  static const Color surfaceVariant = Color(0xFFF4F4F8);
-  static const Color outline = Color(0xFFF1F1F5);
-  static const Color outlineMedium = Color(0xFFE2E2E8);
+  static const Color background = Color(0xFFF4F8FF);
+  static const Color surfaceVariant = Color(0xFFF4F8FF);
+  static const Color outline = Color(0xFFE8F0FF);
+  static const Color outlineMedium = Color(0xFFE8F0FF);
 
   // ── Text ───────────────────────────────────────────────────────────────────
   static const Color onSurface = Color(0xFF1A1A2E);
-  static const Color onSurfaceVariant = Color(0xFF3D3D56);
-  static const Color muted = Color(0xFF6B7280);
+  static const Color onSurfaceVariant = Color(0xFF4B5563);
+  static const Color muted = Color(0xFF9CA3AF);
   static const Color mutedLight = Color(0xFF9CA3AF);
   static const Color onPrimary = Color(0xFFFFFFFF);
+  
+  // ── Aliases for clarity ────────────────────────────────────────────────────
+  static const Color textPrimary = Color(0xFF1A1A2E);
+  static const Color textSecondary = Color(0xFF4B5563);
+  static const Color textMuted = Color(0xFF9CA3AF);
+  static const Color textOnPrimary = Color(0xFFFFFFFF);
+  static const Color divider = Color(0xFFE8F0FF);
 
   // ── Interest Dimension Colours ─────────────────────────────────────────────
   static const Color dimensionCreative = Color(0xFFF472B6);       // C — pink
@@ -52,13 +59,13 @@ class AppColors {
 
   // ── Match Score Gradient ───────────────────────────────────────────────────
   static const List<Color> matchScoreGradient = [
-    Color(0xFF6C63FF),
-    Color(0xFF9C88FF),
+    Color(0xFF2D8EFF),
+    Color(0xFF1A6FD4),
   ];
 
   // ── Shimmer ────────────────────────────────────────────────────────────────
-  static const Color shimmerBase = Color(0xFFE8E8EE);
-  static const Color shimmerHighlight = Color(0xFFF4F4F8);
+  static const Color shimmerBase = Color(0xFFE8F0FF);
+  static const Color shimmerHighlight = Color(0xFFF4F8FF);
 
   /// Returns the foreground color for a dimension code (C/A/S/T/E/P).
   static Color forDimension(String code) {

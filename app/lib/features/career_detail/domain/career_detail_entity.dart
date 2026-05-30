@@ -19,6 +19,36 @@ class RelatedCareer with _$RelatedCareer {
 }
 
 @freezed
+class RealPeopleStory with _$RealPeopleStory {
+  const factory RealPeopleStory({
+    required String id,
+    required String personName,
+    String? personRole,
+    String? personImage,
+    @JsonKey(name: 'story_text') String? storyText,
+    @JsonKey(name: 'career_slug') String? careerSlug,
+  }) = _RealPeopleStory;
+
+  factory RealPeopleStory.fromJson(Map<String, dynamic> json) =>
+      _$RealPeopleStoryFromJson(json);
+}
+
+@freezed
+class LearningResource with _$LearningResource {
+  const factory LearningResource({
+    required String id,
+    required String title,
+    String? description,
+    String? resourceType,  // 'course', 'article', 'video', 'book'
+    String? url,
+    String? provider,      // 'Coursera', 'YouTube', 'Udemy', etc.
+  }) = _LearningResource;
+
+  factory LearningResource.fromJson(Map<String, dynamic> json) =>
+      _$LearningResourceFromJson(json);
+}
+
+@freezed
 class CareerDetailEntity with _$CareerDetailEntity {
   const factory CareerDetailEntity({
     required String id,
@@ -39,6 +69,8 @@ class CareerDetailEntity with _$CareerDetailEntity {
     @JsonKey(name: 'is_emerging') @Default(false) bool isEmerging,
     @JsonKey(name: 'last_reviewed_at') String? lastReviewedAt,
     @JsonKey(name: 'related_careers') @Default([]) List<RelatedCareer> relatedCareers,
+    @JsonKey(name: 'real_people_stories') @Default([]) List<RealPeopleStory> realPeopleStories,
+    @JsonKey(name: 'learning_resources') @Default([]) List<LearningResource> learningResources,
     @JsonKey(name: 'is_saved') @Default(false) bool isSaved,
     @JsonKey(name: 'user_match_score') int? userMatchScore,
   }) = _CareerDetailEntity;

@@ -10,6 +10,8 @@ import '../../../../core/widgets/ns_snackbar.dart';
 import '../domain/career_detail_entity.dart';
 import '../../roadmap/presentation/roadmap_provider.dart';
 import 'career_detail_provider.dart';
+import 'widgets/real_story_card.dart';
+import 'widgets/learning_resource_card.dart';
 
 class CareerDetailScreen extends ConsumerWidget {
   final String slug;
@@ -178,6 +180,25 @@ class CareerDetailScreen extends ConsumerWidget {
                           color: AppColors.onSurfaceVariant,
                         ),
                       ),
+                      const SizedBox(height: AppSpacing.lg),
+                    ],
+
+                    // Real people stories
+                    if (career.realPeopleStories.isNotEmpty) ...[
+                      _SectionTitle(title: '👥 Real People Stories'),
+                      const SizedBox(height: AppSpacing.sm),
+                      ...career.realPeopleStories
+                          .map((story) => RealStoryCard(story: story)),
+                      const SizedBox(height: AppSpacing.lg),
+                    ],
+
+                    // Learning resources
+                    if (career.learningResources.isNotEmpty) ...[
+                      _SectionTitle(title: '📚 Learning Resources'),
+                      const SizedBox(height: AppSpacing.sm),
+                      ...career.learningResources
+                          .map((resource) =>
+                              LearningResourceCard(resource: resource)),
                       const SizedBox(height: AppSpacing.lg),
                     ],
 

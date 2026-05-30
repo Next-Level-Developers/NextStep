@@ -54,3 +54,26 @@ final markReadNotifierProvider =
   final source = ref.watch(notificationRemoteSourceProvider);
   return MarkReadNotifier(source, ref);
 });
+
+/// Notifier for managing foreground notifications from FCM.
+class NotificationsNotifier extends StateNotifier<List<Map<String, dynamic>>> {
+  NotificationsNotifier() : super([]);
+
+  void addNotification(Map<String, dynamic> notification) {
+    state = [notification, ...state];
+  }
+
+  void removeNotification(String id) {
+    state = state.where((n) => n['id'] != id).toList();
+  }
+
+  void clearAll() {
+    state = [];
+  }
+}
+
+final notificationsNotifierProvider =
+    StateNotifierProvider<NotificationsNotifier, List<Map<String, dynamic>>>(
+        (ref) {
+  return NotificationsNotifier();
+});

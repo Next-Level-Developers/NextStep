@@ -69,15 +69,15 @@ class CareerMapScreen extends ConsumerWidget {
           Text(
             '${data.totalMatches} careers matched',
             style: theme.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: AppColors.onSurface,
+              fontWeight: FontWeight.w600,
+              color: AppColors.textPrimary,
             ),
           ),
           const SizedBox(height: AppSpacing.xxs),
           Text(
             'Based on your interest profile',
             style: theme.textTheme.bodySmall?.copyWith(
-              color: AppColors.muted,
+              color: AppColors.textSecondary,
             ),
           ),
         ],
@@ -153,10 +153,14 @@ class _RecommendationCard extends StatelessWidget {
 
     return Card(
       margin: const EdgeInsets.only(bottom: AppSpacing.sm),
-      elevation: 1,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: const BorderSide(color: Color(0xFFE8F0FF), width: 1),
+      ),
+      color: Colors.white,
       child: InkWell(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(20),
         onTap: () => context.push(RouteNames.careerPath(career.slug)),
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.md),
@@ -170,15 +174,19 @@ class _RecommendationCard extends StatelessWidget {
                     width: 32,
                     height: 32,
                     decoration: BoxDecoration(
-                      color: AppColors.primary.withOpacity(0.1),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xFF2D8EFF), Color(0xFF1A6FD4)],
+                      ),
                       shape: BoxShape.circle,
                     ),
                     child: Center(
                       child: Text(
                         '#${rec.rank}',
                         style: theme.textTheme.labelSmall?.copyWith(
-                          color: AppColors.primary,
-                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
@@ -191,14 +199,15 @@ class _RecommendationCard extends StatelessWidget {
                         Text(
                           career.name,
                           style: theme.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.textPrimary,
                           ),
                         ),
                         if (career.oneLiner != null)
                           Text(
                             career.oneLiner!,
                             style: theme.textTheme.bodySmall?.copyWith(
-                              color: AppColors.muted,
+                              color: AppColors.textSecondary,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -213,14 +222,18 @@ class _RecommendationCard extends StatelessWidget {
                       vertical: AppSpacing.xxs,
                     ),
                     decoration: BoxDecoration(
-                      color: _tierColor(rec.matchTier).withOpacity(0.12),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xFF2D8EFF), Color(0xFF1A6FD4)],
+                      ),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
                       '${rec.matchScore}%',
                       style: theme.textTheme.labelMedium?.copyWith(
-                        color: _tierColor(rec.matchTier),
-                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),

@@ -91,7 +91,9 @@ class ApiEndpoints {
   static const String counsellorStudents = 'counsellor/students/';
 
   // ── Share View ────────────────────────────────────────────────────────────
-  static String shareProfile(String shareToken) =>
+  static const String generateParentShareToken = 'share/generate-token/';
+  
+  static String parentShare(String shareToken) =>
       'share/profile/$shareToken/';
 
   // ── Health ────────────────────────────────────────────────────────────────

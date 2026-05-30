@@ -38,13 +38,13 @@ class AppTheme {
 
       // ── App Bar ─────────────────────────────────────────────────────────────
       appBarTheme: AppBarTheme(
-        backgroundColor: AppColors.surface,
+        backgroundColor: AppColors.background,
         foregroundColor: AppColors.onSurface,
         elevation: 0,
-        scrolledUnderElevation: 1,
-        shadowColor: AppColors.outline,
+        scrolledUnderElevation: 0,
+        shadowColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
-        centerTitle: false,
+        centerTitle: true,
         titleTextStyle: textTheme.titleLarge?.copyWith(color: AppColors.onSurface),
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
@@ -54,11 +54,12 @@ class AppTheme {
         color: AppColors.surface,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
+          borderRadius: BorderRadius.circular(20),
           side: const BorderSide(color: AppColors.outline, width: 1),
         ),
         margin: EdgeInsets.zero,
         clipBehavior: Clip.antiAlias,
+        shadowColor: const Color(0xFF2D8EFF).withOpacity(0.1),
       ),
 
       // ── Input ───────────────────────────────────────────────────────────────
@@ -66,34 +67,44 @@ class AppTheme {
         filled: true,
         fillColor: AppColors.surface,
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.lg,
-          vertical: AppSpacing.md,
+          horizontal: 16,
+          vertical: 16,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-          borderSide: const BorderSide(color: AppColors.outlineMedium),
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: AppColors.outline, width: 1.5),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-          borderSide: const BorderSide(color: AppColors.outlineMedium),
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: AppColors.outline, width: 1.5),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-          borderSide: const BorderSide(color: AppColors.primary, width: 2),
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-          borderSide: const BorderSide(color: AppColors.error),
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: AppColors.error, width: 1.5),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-          borderSide: const BorderSide(color: AppColors.error, width: 2),
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: AppColors.error, width: 1.5),
         ),
-        hintStyle: textTheme.bodyLarge?.copyWith(color: AppColors.mutedLight),
-        labelStyle: textTheme.bodyMedium?.copyWith(color: AppColors.muted),
-        errorStyle: textTheme.bodySmall?.copyWith(color: AppColors.error),
-        prefixIconColor: AppColors.muted,
-        suffixIconColor: AppColors.muted,
+        hintStyle: textTheme.bodyMedium?.copyWith(color: AppColors.textMuted),
+        labelStyle: textTheme.bodyMedium?.copyWith(color: AppColors.textSecondary),
+        errorStyle: textTheme.labelSmall?.copyWith(color: AppColors.error, fontSize: 12),
+        prefixIconColor: WidgetStateColor.resolveWith((states) {
+          if (states.contains(WidgetState.focused)) {
+            return AppColors.primary;
+          }
+          return AppColors.textMuted;
+        }),
+        suffixIconColor: WidgetStateColor.resolveWith((states) {
+          if (states.contains(WidgetState.focused)) {
+            return AppColors.primary;
+          }
+          return AppColors.textMuted;
+        }),
       ),
 
       // ── Elevated Button ─────────────────────────────────────────────────────
@@ -102,13 +113,13 @@ class AppTheme {
           backgroundColor: AppColors.primary,
           foregroundColor: AppColors.onPrimary,
           elevation: 0,
-          shadowColor: Colors.transparent,
-          minimumSize: const Size(double.infinity, AppSpacing.buttonHeight),
+          shadowColor: AppColors.primary.withOpacity(0.4),
+          minimumSize: const Size(double.infinity, 52),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
+            borderRadius: BorderRadius.circular(14),
           ),
-          textStyle: textTheme.labelLarge?.copyWith(fontSize: 16),
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
+          textStyle: textTheme.labelLarge?.copyWith(fontSize: 15, fontWeight: FontWeight.w600),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
         ),
       ),
 
@@ -117,12 +128,12 @@ class AppTheme {
         style: OutlinedButton.styleFrom(
           foregroundColor: AppColors.primary,
           side: const BorderSide(color: AppColors.primary, width: 1.5),
-          minimumSize: const Size(double.infinity, AppSpacing.buttonHeight),
+          minimumSize: const Size(double.infinity, 52),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
+            borderRadius: BorderRadius.circular(14),
           ),
-          textStyle: textTheme.labelLarge?.copyWith(fontSize: 16),
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
+          textStyle: textTheme.labelLarge?.copyWith(fontSize: 15, fontWeight: FontWeight.w600),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
         ),
       ),
 
@@ -130,26 +141,26 @@ class AppTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: AppColors.primary,
-          textStyle: textTheme.labelLarge,
+          textStyle: textTheme.labelMedium?.copyWith(fontSize: 14, fontWeight: FontWeight.w500),
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.sm,
-            vertical: AppSpacing.xs,
+            horizontal: 8,
+            vertical: 8,
           ),
         ),
       ),
 
       // ── Chip ────────────────────────────────────────────────────────────────
       chipTheme: ChipThemeData(
-        backgroundColor: AppColors.surfaceVariant,
-        selectedColor: AppColors.primaryLight,
-        labelStyle: textTheme.labelMedium,
-        side: BorderSide.none,
+        backgroundColor: AppColors.surface,
+        selectedColor: const Color(0xFFEAF3FF),
+        labelStyle: textTheme.labelMedium?.copyWith(color: AppColors.textSecondary),
+        side: const BorderSide(color: Color(0xFFE8F0FF), width: 1),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusFull),
+          borderRadius: BorderRadius.circular(20),
         ),
         padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.md,
-          vertical: AppSpacing.xs,
+          horizontal: 14,
+          vertical: 8,
         ),
       ),
 
@@ -157,14 +168,14 @@ class AppTheme {
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: AppColors.surface,
         elevation: 0,
-        shadowColor: AppColors.outline,
+        shadowColor: AppColors.primary.withOpacity(0.1),
         surfaceTintColor: Colors.transparent,
         indicatorColor: AppColors.primaryLight,
         iconTheme: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
             return const IconThemeData(color: AppColors.primary, size: 24);
           }
-          return const IconThemeData(color: AppColors.muted, size: 24);
+          return const IconThemeData(color: AppColors.textMuted, size: 24);
         }),
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {

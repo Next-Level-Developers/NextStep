@@ -66,29 +66,30 @@ class WelcomeScreen extends ConsumerWidget {
               children: [
                 const Spacer(),
                 
-                // Illustration container
+                // Illustration container - gradient circle with glow
                 Center(
                   child: Container(
-                    width: 180,
-                    height: 180,
+                    width: 140,
+                    height: 140,
                     decoration: BoxDecoration(
-                      color: AppColors.primary.withOpacity(0.08),
                       shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: Container(
-                        width: 130,
-                        height: 130,
-                        decoration: BoxDecoration(
-                          color: AppColors.primary.withOpacity(0.12),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.explore_rounded,
-                          size: 72.0,
-                          color: AppColors.primary,
-                        ),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xFF2D8EFF), Color(0xFF1A6FD4)],
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF2D8EFF).withOpacity(0.4),
+                          blurRadius: 30,
+                          spreadRadius: 5,
+                        ),
+                      ],
+                    ),
+                    child: const Icon(
+                      Icons.explore_rounded,
+                      size: 72.0,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -100,7 +101,7 @@ class WelcomeScreen extends ConsumerWidget {
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: AppColors.muted,
+                    color: AppColors.textSecondary,
                   ),
                 ),
                 const SizedBox(height: AppSpacing.xs),
@@ -109,7 +110,7 @@ class WelcomeScreen extends ConsumerWidget {
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w800,
-                    color: AppColors.onSurface,
+                    color: AppColors.textPrimary,
                     height: 1.25,
                   ),
                 ),
@@ -117,10 +118,10 @@ class WelcomeScreen extends ConsumerWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
                   child: Text(
-                    'Answer 24 quick, scenario-based questions to match your interests to a 300+ career universe in India.',
+                    'Answer quick, scenario-based questions to match your interests to a 300+ career universe in India.',
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium?.copyWith(
-                      color: AppColors.onSurfaceVariant,
+                      color: AppColors.textSecondary,
                       height: 1.45,
                     ),
                   ),
@@ -135,9 +136,8 @@ class WelcomeScreen extends ConsumerWidget {
                       vertical: AppSpacing.xs,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.outline,
+                      color: const Color(0xFFEAF3FF),
                       borderRadius: BorderRadius.circular(20.0),
-                      border: Border.all(color: AppColors.outlineMedium),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -145,14 +145,14 @@ class WelcomeScreen extends ConsumerWidget {
                         const Icon(
                           Icons.timer_outlined,
                           size: 16.0,
-                          color: AppColors.onSurfaceVariant,
+                          color: Color(0xFF2D8EFF),
                         ),
                         const SizedBox(width: AppSpacing.xs),
                         Text(
                           'Takes only 5 minutes',
                           style: theme.textTheme.labelMedium?.copyWith(
-                            color: AppColors.onSurfaceVariant,
-                            fontWeight: FontWeight.bold,
+                            color: const Color(0xFF2D8EFF),
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ],

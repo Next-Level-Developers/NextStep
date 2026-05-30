@@ -26,17 +26,10 @@ class ProgressBar extends StatelessWidget {
           children: [
             Text(
               'PROFILER PROGRESS',
-              style: theme.textTheme.labelSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: AppColors.muted,
-                letterSpacing: 1.0,
-              ),
-            ),
-            Text(
-              '$current of $total answered',
               style: theme.textTheme.labelMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: AppColors.primary,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textMuted,
+                letterSpacing: 1.2,
               ),
             ),
           ],
@@ -46,24 +39,24 @@ class ProgressBar extends StatelessWidget {
           children: [
             // Track
             Container(
-              height: 8.0,
+              height: 6.0,
               decoration: BoxDecoration(
-                color: AppColors.outlineMedium,
-                borderRadius: BorderRadius.circular(4.0),
+                color: AppColors.divider,
+                borderRadius: BorderRadius.circular(3.0),
               ),
             ),
             // Progress Bar
             AnimatedFractionallySizedBox(
-              duration: const Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 400),
               curve: Curves.easeInOut,
               widthFactor: progress,
               child: Container(
-                height: 8.0,
+                height: 6.0,
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     colors: AppColors.matchScoreGradient,
                   ),
-                  borderRadius: BorderRadius.circular(4.0),
+                  borderRadius: BorderRadius.circular(3.0),
                 ),
               ),
             ),

@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'firebase_options.dart';
 import 'app.dart';
+import 'core/services/firebase_messaging_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,8 +32,31 @@ void main() async {
 
   // 3. Run the application wrapped with ProviderScope
   runApp(
-    const ProviderScope(
-      child: NextStepApp(),
+    ProviderScope(
+      child: const NextStepApp(),
+      observers: [_RiverpodObserver()],
     ),
   );
+}
+
+/// Observer that initializes Firebase Messaging after ProviderScope is ready.
+class _RiverpodObserver extends ProviderObserver {
+  bool _messagingInitialized = false;
+
+  @override
+  void didUpdateProvider(
+    ProviderBase provider,
+    Object? previousValue,
+    Object? newValue,
+    ProviderContainer container,
+  ) {
+    // Initialize Firebase Messaging after the app starts
+    if (!_messagingInitialized && newValue != null) {
+      _messagingInitialized = true;
+      // Initialize Firebase Messaging in the background
+      Future.microtask(
+        () => container.read(firebaseMessagingServiceProvider).initialize(),
+      );
+    }
+  }
 }

@@ -196,7 +196,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.08),
+                  color: AppColors.textPrimary.withOpacity(0.08),
                   blurRadius: 4,
                   offset: const Offset(0, -1),
                 ),
@@ -279,7 +279,7 @@ class _MessageBubble extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: AppColors.textPrimary.withOpacity(0.05),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
