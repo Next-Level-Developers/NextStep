@@ -74,7 +74,53 @@ async def list_recommendations(
 
     query = query.order_by(CareerRecommendation.display_rank.asc()).limit(limit)
     result = await db.execute(query)
-    recs = result.scalars().all()
+    recs = list(result.scalars().all())
+
+    # Self-healing: if no recommendations exist for this profile, generate them on the fly
+    if not recs and not tier:
+        from services.matching_engine import compute_match_score
+        
+        careers_stmt = select(Career).where(Career.is_active == True)
+        careers_result = await db.execute(careers_stmt)
+        all_careers = careers_result.scalars().all()
+        
+        if all_careers:
+            scored = []
+            for c in all_careers:
+                score, t, overlap = compute_match_score(
+                    profile.dimension_scores, c.dimension_tags, profile.top_dimensions
+                )
+                scored.append((c, score, t, overlap))
+
+            # Sort by score desc, take top 15
+            scored.sort(key=lambda x: x[1], reverse=True)
+            top_recs = scored[:15]
+
+            for rank, (career, score, t, overlap) in enumerate(top_recs, start=1):
+                rec = CareerRecommendation(
+                    user_id=current_user.id,
+                    interest_profile_id=profile.id,
+                    career_id=career.id,
+                    match_score=score,
+                    match_tier=t,
+                    tag_overlap_count=overlap,
+                    display_rank=rank,
+                    is_novel=(t == "discovery_match"),
+                )
+                db.add(rec)
+            
+            await db.flush()
+            
+            # Fetch again to populate relationships (career, domain)
+            query_refresh = (
+                select(CareerRecommendation)
+                .options(selectinload(CareerRecommendation.career).selectinload(Career.domain))
+                .where(CareerRecommendation.interest_profile_id == profile.id)
+                .order_by(CareerRecommendation.display_rank.asc())
+                .limit(limit)
+            )
+            refresh_result = await db.execute(query_refresh)
+            recs = list(refresh_result.scalars().all())
 
     recommendations = []
     for r in recs:
