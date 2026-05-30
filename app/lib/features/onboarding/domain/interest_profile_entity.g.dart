@@ -1,4 +1,4 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+ // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'interest_profile_entity.dart';
 

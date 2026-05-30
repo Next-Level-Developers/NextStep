@@ -1,11 +1,14 @@
 // lib/features/home/presentation/recommendation_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../auth/presentation/auth_provider.dart';
 import '../data/recommendation_remote_source.dart';
 import '../domain/recommendation_entity.dart';
 
 /// Provider for fetching personalized recommendations.
 final recommendationsProvider =
     FutureProvider<RecommendationsResponse>((ref) async {
+  // Ensure we refetch if the user changes or if their profile is updated.
+  ref.watch(currentUserProvider);
   final source = ref.watch(recommendationRemoteSourceProvider);
   return source.getRecommendations();
 });
@@ -13,6 +16,7 @@ final recommendationsProvider =
 /// Provider for saved careers list.
 final savedCareersProvider =
     FutureProvider<List<SavedCareerItem>>((ref) async {
+  ref.watch(currentUserProvider);
   final source = ref.watch(recommendationRemoteSourceProvider);
   return source.listSavedCareers();
 });
