@@ -59,14 +59,7 @@ class NSSnackbar {
           ],
         ),
         backgroundColor: backgroundColor,
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-        margin: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.md,
-          vertical: AppSpacing.md,
-        ),
+        behavior: SnackBarBehavior.fixed,
         duration: const Duration(seconds: 4),
       ),
     );
