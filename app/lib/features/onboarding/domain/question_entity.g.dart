@@ -10,7 +10,7 @@ _$QuestionOptionImpl _$$QuestionOptionImplFromJson(Map<String, dynamic> json) =>
     _$QuestionOptionImpl(
       index: (json['index'] as num).toInt(),
       text: json['text'] as String,
-      emoji: json['emoji'] as String,
+      emoji: json['emoji'] as String? ?? '',
       dimensionWeights:
           (json['dimension_weights'] as Map<String, dynamic>?)?.map(
                 (k, e) => MapEntry(k, (e as num).toDouble()),
@@ -53,5 +53,5 @@ Map<String, dynamic> _$$QuestionEntityImplToJson(
       'question_type': instance.questionType,
       'is_scored': instance.isScored,
       'max_selections': instance.maxSelections,
-      'options': instance.options,
+      'options': instance.options.map((e) => e.toJson()).toList(),
     };

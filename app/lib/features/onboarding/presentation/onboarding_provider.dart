@@ -66,7 +66,7 @@ class OnboardingState {
   }
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class OnboardingNotifier extends _$OnboardingNotifier {
   @override
   FutureOr<OnboardingState> build() async {
@@ -74,8 +74,9 @@ class OnboardingNotifier extends _$OnboardingNotifier {
   }
 
   /// Initialise or resume a profiler session.
-  Future<void> startOrResumeSession({bool isRetake = false}) async {
-    state = AsyncValue.data(state.value!.copyWith(status: OnboardingStatus.loading));
+  Future<bool> startOrResumeSession({bool isRetake = false}) async {
+    final currentState = state.valueOrNull ?? OnboardingState();
+    state = AsyncValue.data(currentState.copyWith(status: OnboardingStatus.loading));
     try {
       final repo = ref.read(profilerRepositoryProvider);
       
@@ -114,8 +115,10 @@ class OnboardingNotifier extends _$OnboardingNotifier {
           answers: {},
         ),
       );
+      return true;
     } catch (e, st) {
       state = AsyncValue.error(e, st);
+      return false;
     }
   }
 

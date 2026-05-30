@@ -18,7 +18,7 @@ from schemas.auth import (
     FirebaseLoginRequest, AuthTokens, UserBrief,
     TokenRefreshRequest, TokenRefreshResponse,
 )
-from models.user import User
+from models.user import User, StudentProfile
 
 
 router = APIRouter()
@@ -63,10 +63,14 @@ async def firebase_login(
     firebase_user = await verify_firebase_token(body.firebase_token)
     user, is_new = await _get_or_create_user(db, firebase_user)
 
-    # Check if student profile has been completed
+    # Check if student profile has been completed without triggering lazy loads.
     profiler_completed = False
-    if user.student_profile:
-        profiler_completed = user.student_profile.profiler_completed
+    if user.id:
+        profile_stmt = select(StudentProfile.profiler_completed).where(
+            StudentProfile.user_id == user.id
+        )
+        profile_result = await db.execute(profile_stmt)
+        profiler_completed = bool(profile_result.scalar_one_or_none() or False)
 
     return {
         "success": True,

@@ -145,7 +145,7 @@ class _$QuestionOptionImpl implements _QuestionOption {
   const _$QuestionOptionImpl(
       {required this.index,
       required this.text,
-      required this.emoji,
+      this.emoji = '',
       @JsonKey(name: 'dimension_weights')
       final Map<String, double> dimensionWeights = const {}})
       : _dimensionWeights = dimensionWeights;
@@ -158,6 +158,7 @@ class _$QuestionOptionImpl implements _QuestionOption {
   @override
   final String text;
   @override
+  @JsonKey()
   final String emoji;
   final Map<String, double> _dimensionWeights;
   @override
@@ -209,7 +210,7 @@ abstract class _QuestionOption implements QuestionOption {
   const factory _QuestionOption(
       {required final int index,
       required final String text,
-      required final String emoji,
+      final String emoji,
       @JsonKey(name: 'dimension_weights')
       final Map<String, double> dimensionWeights}) = _$QuestionOptionImpl;
 
@@ -423,7 +424,8 @@ class __$$QuestionEntityImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$QuestionEntityImpl implements _QuestionEntity {
   const _$QuestionEntityImpl(
       {required this.code,
