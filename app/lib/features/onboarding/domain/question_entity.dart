@@ -9,7 +9,7 @@ class QuestionOption with _$QuestionOption {
   const factory QuestionOption({
     required int index,
     required String text,
-    required String emoji,
+    @Default('') String emoji,
     @JsonKey(name: 'dimension_weights') @Default({}) Map<String, double> dimensionWeights,
   }) = _QuestionOption;
 
@@ -19,6 +19,7 @@ class QuestionOption with _$QuestionOption {
 
 @freezed
 class QuestionEntity with _$QuestionEntity {
+  @JsonSerializable(explicitToJson: true)
   const factory QuestionEntity({
     required String code,
     required String section,

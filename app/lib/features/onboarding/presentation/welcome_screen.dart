@@ -16,14 +16,28 @@ class WelcomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final userState = ref.watch(currentUserProvider).value;
+    final onboardingAsync = ref.watch(onboardingNotifierProvider);
     final name = userState?.fullName ?? 'Future Leader';
+    final isStarting = onboardingAsync.isLoading ||
+        onboardingAsync.value?.status == OnboardingStatus.loading;
 
     // Handler to launch profiler
     void launchProfiler({bool isResume = false}) async {
       final notifier = ref.read(onboardingNotifierProvider.notifier);
-      await notifier.startOrResumeSession();
-      if (context.mounted) {
+      final ok = await notifier.startOrResumeSession();
+      if (ok && context.mounted) {
         context.go(RouteNames.onboardingProfiler);
+        return;
+      }
+
+      if (context.mounted) {
+        final error = ref.read(onboardingNotifierProvider).error;
+        final message = error != null
+            ? 'Could not start profiler: $error'
+            : 'Could not start profiler. Please try again.';
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(message)),
+        );
       }
     }
 
@@ -150,14 +164,15 @@ class WelcomeScreen extends ConsumerWidget {
                 // CTAs
                 NSButton.primary(
                   label: 'Start Discovering',
-                  onPressed: () => launchProfiler(),
+                  isLoading: isStarting,
+                  onPressed: isStarting ? null : () => launchProfiler(),
                 ),
                 const SizedBox(height: AppSpacing.sm),
                 
                 // Conditional resume stub (we can trigger the same since notifier handles resuming auto)
                 NSButton.text(
                   label: 'Continue where you left off',
-                  onPressed: () => launchProfiler(isResume: true),
+                  onPressed: isStarting ? null : () => launchProfiler(isResume: true),
                 ),
                 const SizedBox(height: AppSpacing.sm),
               ],

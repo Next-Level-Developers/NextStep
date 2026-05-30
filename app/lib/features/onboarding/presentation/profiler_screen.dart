@@ -69,9 +69,11 @@ class ProfilerScreen extends ConsumerWidget {
               NSButton.secondary(
                 width: 150,
                 label: 'Retry',
-                onPressed: () => ref
-                    .read(onboardingNotifierProvider.notifier)
-                    .startOrResumeSession(),
+                onPressed: () async {
+                  await ref
+                      .read(onboardingNotifierProvider.notifier)
+                      .startOrResumeSession();
+                },
               )
             ],
           ),

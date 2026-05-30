@@ -8,6 +8,7 @@ import '../../features/auth/presentation/signup_screen.dart';
 import '../../features/onboarding/presentation/welcome_screen.dart';
 import '../../features/onboarding/presentation/profiler_screen.dart';
 import '../../features/onboarding/presentation/profile_building_screen.dart';
+import '../../features/onboarding/presentation/onboarding_provider.dart';
 import '../../features/home/presentation/home_screen.dart';
 import '../../features/career_map/presentation/career_map_screen.dart';
 import '../../features/explore/presentation/explore_screen.dart';
@@ -82,9 +83,11 @@ final routerProvider = Provider<GoRouter>((ref) {
       }
 
       final isProfilerCompleted = user.studentProfile?.profilerCompleted ?? false;
+      final onboardingState = ref.read(onboardingNotifierProvider).valueOrNull;
+      final hasLocalCompletion = onboardingState?.status == OnboardingStatus.done;
 
       // 3. Profiler onboarding check
-      if (!isProfilerCompleted) {
+      if (!isProfilerCompleted && !hasLocalCompletion) {
         if (path.startsWith('/onboarding')) {
           return null; // Allowed
         }
