@@ -38,7 +38,7 @@ class CareerRecommendation(Base):
     display_rank: Mapped[int] = mapped_column(SmallInteger, nullable=False)
     is_novel: Mapped[bool] = mapped_column(Boolean, default=False)
     generated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
 
     # Relationships
@@ -71,7 +71,7 @@ class CareerView(Base):
     )
     source: Mapped[str] = mapped_column(String(30), default="")
     viewed_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
     time_spent_seconds: Mapped[int | None] = mapped_column(Integer, nullable=True)
     reached_roadmap: Mapped[bool] = mapped_column(Boolean, default=False)
@@ -98,7 +98,7 @@ class CareerSave(Base):
         UUID(as_uuid=True), ForeignKey("careers.id", ondelete="CASCADE")
     )
     saved_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
 

@@ -35,7 +35,7 @@ class AnalyticsEvent(Base):
         UUID(as_uuid=True), nullable=True
     )
     occurred_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
 
     __table_args__ = (

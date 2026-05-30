@@ -57,6 +57,7 @@ class Settings(BaseSettings):
     # ── Firebase ───────────────────────────────────────────────
     FIREBASE_CREDENTIALS_PATH: str | None = None
     FIREBASE_CREDENTIALS_JSON: str | None = None
+    FIREBASE_PROJECT_ID: str | None = None
 
     # ── AI (Anthropic) ─────────────────────────────────────────
     ANTHROPIC_API_KEY: str = ""

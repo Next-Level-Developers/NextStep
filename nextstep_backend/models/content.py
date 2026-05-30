@@ -34,7 +34,7 @@ class RealPeopleStory(Base):
     is_premium: Mapped[bool] = mapped_column(Boolean, default=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
 
     def __repr__(self) -> str:
@@ -58,7 +58,7 @@ class LearningResource(Base):
     is_free: Mapped[bool] = mapped_column(Boolean, default=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
 
     def __repr__(self) -> str:

@@ -19,8 +19,6 @@ class _ProfileBuildingScreenState extends State<ProfileBuildingScreen> with Tick
   final List<String> _dimensions = ['C', 'A', 'S', 'T', 'E', 'P'];
   final List<String> _revealedDimensions = [];
   String _statusText = 'Initializing career alignment engine...';
-  int _dimensionIndex = 0;
-  Timer? _revealTimer;
 
   @override
   void initState() {
@@ -36,7 +34,6 @@ class _ProfileBuildingScreenState extends State<ProfileBuildingScreen> with Tick
   @override
   void dispose() {
     _pulseController.dispose();
-    _revealTimer?.cancel();
     super.dispose();
   }
 

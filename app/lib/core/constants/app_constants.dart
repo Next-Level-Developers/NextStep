@@ -5,7 +5,7 @@ class AppConstants {
 
   // API
   static const String apiBaseUrl =
-      String.fromEnvironment('API_BASE_URL', defaultValue: 'https://api.nextstep.app/api/v1/');
+      String.fromEnvironment('API_BASE_URL', defaultValue: 'http://3.109.206.125:8000/api/v1/');
 
   // Razorpay
   static const String razorpayKeyId =

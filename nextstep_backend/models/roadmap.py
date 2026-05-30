@@ -36,10 +36,10 @@ class Roadmap(Base):
     generation_method: Mapped[str] = mapped_column(String(20), default="template")
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     generated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
     last_updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+        DateTime(timezone=True), default=func.now(), onupdate=func.now()
     )
 
     # Relationships

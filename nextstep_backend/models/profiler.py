@@ -32,7 +32,7 @@ class ProfilerSession(Base):
     questions_answered: Mapped[int] = mapped_column(SmallInteger, default=0)
     questions_skipped: Mapped[int] = mapped_column(SmallInteger, default=0)
     started_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
     completed_at: Mapped[datetime | None] = mapped_column(
         DateTime(timezone=True), nullable=True
@@ -73,7 +73,7 @@ class ProfilerResponse(Base):
     dimension_weights: Mapped[dict] = mapped_column(JSONB, default=dict)
     skipped: Mapped[bool] = mapped_column(Boolean, default=False)
     answered_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
 
     # Relationships
@@ -107,7 +107,7 @@ class InterestProfile(Base):
         ARRAY(String(100)), nullable=True
     )
     computed_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
+        DateTime(timezone=True), default=func.now()
     )
 
     # Relationships

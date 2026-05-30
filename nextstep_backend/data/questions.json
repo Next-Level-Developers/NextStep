@@ -2,7 +2,7 @@
 	{
 		"code": "SC-1",
 		"section": "context",
-		"section_label": "About You",
+		"section_label": "Student Context",
 		"question_text": "What is your current academic stage?",
 		"question_type": "single_select",
 		"is_scored": false,
@@ -10,32 +10,94 @@
 		"options": [
 			{
 				"index": 0,
-				"text": "Grade 8 or 9 - Still exploring, no stream yet",
+				"text": "Grade 8 or 9 — Still exploring, no stream yet",
 				"dimension_weights": {}
 			},
 			{
 				"index": 1,
-				"text": "Grade 10 - Choosing my stream soon",
+				"text": "Grade 10 — Choosing my stream soon",
 				"dimension_weights": {}
 			},
 			{
 				"index": 2,
-				"text": "Grade 11 or 12 - Science",
+				"text": "Grade 11 or 12 — Science stream",
 				"dimension_weights": {}
 			},
 			{
 				"index": 3,
-				"text": "Grade 11 or 12 - Commerce",
+				"text": "Grade 11 or 12 — Commerce stream",
 				"dimension_weights": {}
 			},
 			{
 				"index": 4,
-				"text": "Grade 11 or 12 - Arts",
+				"text": "Grade 11 or 12 — Arts / Humanities stream",
 				"dimension_weights": {}
 			},
 			{
 				"index": 5,
-				"text": "College Year 1 or 2",
+				"text": "College — Year 1 or 2",
+				"dimension_weights": {}
+			}
+		]
+	},
+	{
+		"code": "SC-2",
+		"section": "context",
+		"section_label": "Student Context",
+		"question_text": "Have you already decided what you want to do after school/college?",
+		"question_type": "single_select",
+		"is_scored": false,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Yes, I have a clear idea",
+				"dimension_weights": {}
+			},
+			{
+				"index": 1,
+				"text": "I have a few options in mind but I'm not sure",
+				"dimension_weights": {}
+			},
+			{
+				"index": 2,
+				"text": "Not at all — that's why I'm here",
+				"dimension_weights": {}
+			},
+			{
+				"index": 3,
+				"text": "I thought I knew, but I want to explore more",
+				"dimension_weights": {}
+			}
+		]
+	},
+	{
+		"code": "SC-3",
+		"section": "context",
+		"section_label": "Student Context",
+		"question_text": "How much pressure are you under right now to decide your career?",
+		"question_type": "single_select",
+		"is_scored": false,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "A lot — family expects a decision soon",
+				"dimension_weights": {}
+			},
+			{
+				"index": 1,
+				"text": "Some — it comes up occasionally",
+				"dimension_weights": {}
+			},
+			{
+				"index": 2,
+				"text": "Not much — I have time to figure it out",
+				"dimension_weights": {}
+			},
+			{
+				"index": 3,
+				"text": "Very high — I feel lost and stressed about it",
 				"dimension_weights": {}
 			}
 		]
@@ -44,7 +106,7 @@
 		"code": "Q1",
 		"section": "free_time",
 		"section_label": "What You Do With Free Time",
-		"question_text": "It's a free Saturday with zero obligations. What are you most likely doing?",
+		"question_text": "It's a free Saturday with zero obligations — no school, no family commitments. What are you most likely doing?",
 		"instruction": "Pick the one that feels most like you.",
 		"question_type": "single_select",
 		"is_scored": true,
@@ -57,28 +119,28 @@
 			},
 			{
 				"index": 1,
-				"text": "Exploring technology - coding, building apps, tinkering",
+				"text": "Exploring technology — coding, building apps, tinkering with electronics",
 				"dimension_weights": { "T": 1.0 }
 			},
 			{
 				"index": 2,
-				"text": "Reading, researching, or learning something new",
+				"text": "Reading, researching, or going deep on something I'm curious about",
 				"dimension_weights": { "A": 1.0 }
 			},
 			{
 				"index": 3,
-				"text": "Helping friends or talking to people",
+				"text": "Spending time with friends, having long conversations, or helping someone",
 				"dimension_weights": { "S": 1.0 }
 			},
 			{
 				"index": 4,
-				"text": "Planning an event or organizing a project",
-				"dimension_weights": { "E": 1.0 }
+				"text": "Playing sport, going outdoors, working out, or doing something physical",
+				"dimension_weights": { "P": 1.0 }
 			},
 			{
 				"index": 5,
-				"text": "Sports, outdoor activity, or hands-on work",
-				"dimension_weights": { "P": 1.0 }
+				"text": "Planning a project, thinking about a business idea, or organising something",
+				"dimension_weights": { "E": 1.0 }
 			}
 		]
 	},
@@ -86,7 +148,7 @@
 		"code": "Q2",
 		"section": "free_time",
 		"section_label": "What You Do With Free Time",
-		"question_text": "When you watch videos or scroll through content, what do you keep coming back to?",
+		"question_text": "When you watch YouTube or scroll through content, what kind of videos do you keep coming back to?",
 		"instruction": "Pick up to 2.",
 		"question_type": "multi_select",
 		"max_selections": 2,
@@ -100,28 +162,1024 @@
 			},
 			{
 				"index": 1,
-				"text": "Technology explainers or coding tutorials",
+				"text": "Science experiments, tech reviews, or 'how things work'",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Finance, startups, business stories, or investing",
+				"dimension_weights": { "E": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Sports highlights, fitness routines, or outdoor adventures",
+				"dimension_weights": { "P": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Documentaries about people, society, psychology, or history",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Game walkthroughs, programming tutorials, or gadget builds",
+				"dimension_weights": { "T": 1.0, "C": 1.0 }
+			},
+			{
+				"index": 6,
+				"text": "Climate, environment, social justice, or news",
+				"dimension_weights": { "A": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 7,
+				"text": "Music, performance, storytelling, or personal vlogs",
+				"dimension_weights": { "C": 1.0, "S": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q3",
+		"section": "free_time",
+		"section_label": "What You Do With Free Time",
+		"question_text": "Imagine you have one month of holidays with a small budget. Which project would excite you the most?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Creating a short film, comic strip, or illustrated story",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Building a working gadget, app, or automation for something at home",
 				"dimension_weights": { "T": 1.0 }
 			},
 			{
 				"index": 2,
-				"text": "Science, data, or research content",
+				"text": "Researching a topic deeply and writing a detailed report or blog",
 				"dimension_weights": { "A": 1.0 }
 			},
 			{
 				"index": 3,
-				"text": "People stories, interviews, or social impact",
+				"text": "Teaching or tutoring younger kids in your neighbourhood",
 				"dimension_weights": { "S": 1.0 }
 			},
 			{
 				"index": 4,
-				"text": "Business, startups, or product-building stories",
+				"text": "Organising a trip or sports event with friends",
+				"dimension_weights": { "P": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Starting a small side hustle — selling something, creating a service",
+				"dimension_weights": { "E": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q4",
+		"section": "thinking_style",
+		"section_label": "How You Think & Solve Problems",
+		"question_text": "You notice that the canteen at your school wastes a lot of food every day. What's your first instinct?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Design a better menu or ordering system so less food is prepared unnecessarily",
+				"dimension_weights": { "C": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Build a digital system that tracks orders and predicts demand",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Start a campaign, talk to the canteen staff, rally students to change behaviour",
+				"dimension_weights": { "S": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Collect data on what food gets wasted, analyse patterns, and present findings",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Organise a system to donate leftover food to nearby shelters or students in need",
+				"dimension_weights": { "S": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Research how other schools globally solved the same problem and adapt the best solution",
+				"dimension_weights": { "A": 1.0, "S": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q5",
+		"section": "thinking_style",
+		"section_label": "How You Think & Solve Problems",
+		"question_text": "Your school is organising a science fair. Which project would you most want to work on?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "A model of a renewable energy system that actually generates power",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "An infographic installation visualising how the human brain processes emotions",
+				"dimension_weights": { "C": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "A robot that can help differently-abled students navigate the school",
+				"dimension_weights": { "T": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "A data study comparing how students' sleep patterns affect academic performance",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "An interview-based documentary about local farmers affected by climate change",
+				"dimension_weights": { "S": 1.0, "C": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "A scaled physical model of a better-designed school building with green features",
+				"dimension_weights": { "C": 1.0, "T": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q6",
+		"section": "thinking_style",
+		"section_label": "How You Think & Solve Problems",
+		"question_text": "You're given a big, unstructured problem with no clear answer. How do you usually approach it?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "I break it into small parts, list everything I need to understand, then research each",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "I sketch ideas, make diagrams, or draw out what the solution might look like",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "I talk it through with someone — bouncing ideas helps me think clearly",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "I jump in and start experimenting — trial and error works better for me than planning",
+				"dimension_weights": { "T": 1.0, "P": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "I create a plan, assign steps, and think about resources and timeline",
 				"dimension_weights": { "E": 1.0 }
 			},
 			{
 				"index": 5,
-				"text": "Sports or fitness content",
+				"text": "I look for someone who has already solved a similar problem and learn from them",
+				"dimension_weights": { "A": 1.0, "S": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q7",
+		"section": "thinking_style",
+		"section_label": "How You Think & Solve Problems",
+		"question_text": "You discover a new app has a terrible onboarding experience — most users drop off in the first 30 seconds. What do you want to do?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Redesign the visual flow and make it feel more intuitive and inviting",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Fix the technical bugs and optimise the loading speed",
+				"dimension_weights": { "T": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Interview users to understand exactly where and why they're dropping off",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Analyse the drop-off data to find the exact screen where it happens",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Reimagine the whole product strategy — maybe the problem is bigger than the onboarding",
+				"dimension_weights": { "E": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Rewrite all the in-app text to be clearer and more friendly",
+				"dimension_weights": { "C": 1.0, "S": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q8",
+		"section": "work_energy",
+		"section_label": "What Kind of Work Energises You",
+		"question_text": "Which of these would feel like 'a great day at work' for you?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "You came up with a creative idea that people genuinely loved",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "You solved a complex technical or analytical problem no one else could figure out",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "You helped someone through a really hard moment and they felt supported",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "You convinced a room full of people to back your idea",
+				"dimension_weights": { "E": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "You spent the day working outdoors or with your hands, and built something real",
+				"dimension_weights": { "P": 1.0, "T": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "You discovered a new insight through research that nobody had noticed before",
+				"dimension_weights": { "A": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q9",
+		"section": "work_energy",
+		"section_label": "What Kind of Work Energises You",
+		"question_text": "Which work environment sounds the most appealing to you?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "A focused desk with a big screen — deep work, code, data, or design",
+				"dimension_weights": { "T": 1.0, "A": 1.0, "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "In the field — visiting places, meeting people, doing things on-site",
+				"dimension_weights": { "P": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "A collaborative open space — brainstorming, meetings, working with people",
+				"dimension_weights": { "S": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "A lab or workshop — experiments, prototypes, and physical building",
+				"dimension_weights": { "T": 1.0, "P": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Fully remote, from anywhere — autonomy and flexibility",
+				"dimension_weights": { "E": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "A studio — music, art, film, design, or performance",
+				"dimension_weights": { "C": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q10",
+		"section": "work_energy",
+		"section_label": "What Kind of Work Energises You",
+		"question_text": "When working in a group, which role do you naturally gravitate toward?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "The one who comes up with the big idea and keeps the vision clear",
+				"dimension_weights": { "C": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "The one who figures out how to actually make it work technically",
+				"dimension_weights": { "T": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "The one who communicates the idea to others and brings everyone together",
+				"dimension_weights": { "S": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "The one who does the research, checks facts, and makes sure decisions are data-backed",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "The one who keeps the team morale high and resolves conflicts when they arise",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "The one who just gets things done — execution over talk",
+				"dimension_weights": { "P": 1.0, "T": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q11",
+		"section": "values",
+		"section_label": "What Matters to You",
+		"question_text": "You're 30 years old, successful in your career. Which of these feels most satisfying?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "People experience your creative work — art, design, film, games — and it moves them",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "You contributed to a scientific breakthrough that could save or improve many lives",
+				"dimension_weights": { "A": 1.0, "T": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "You built a business that employs hundreds of people and solves a real problem",
+				"dimension_weights": { "E": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "You helped shape the next generation — through teaching, mentoring, or public service",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "You worked on solving a massive societal problem — climate, inequality, healthcare",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "You're at the top of your field — globally recognised for your technical mastery",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q12",
+		"section": "values",
+		"section_label": "What Matters to You",
+		"question_text": "Which of these problems makes you most angry when you read about it?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Climate change and environmental destruction",
+				"dimension_weights": { "A": 1.0, "T": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "The lack of mental health support for young people",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "The digital divide — millions of people without internet or technology access",
+				"dimension_weights": { "T": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "The world is full of ugly, poorly designed experiences — bad apps, bad spaces",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Financial inequality — a few people own most of the world's wealth",
+				"dimension_weights": { "E": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "AI and automation threatening jobs without anyone preparing for it",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q13",
+		"section": "values",
+		"section_label": "What Matters to You",
+		"question_text": "What motivates you most in the long run?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Financial freedom — the ability to live without money being a constant worry",
+				"dimension_weights": { "E": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Recognition — being respected and known for your work",
+				"dimension_weights": { "C": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Mastery — becoming one of the best in the world at something",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Impact — knowing your work genuinely made the world better",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Balance — a fulfilling career that also gives you time for your personal life",
+				"dimension_weights": { "P": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Discovery — the thrill of exploring unknown territory and learning new things",
+				"dimension_weights": { "A": 1.0, "C": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q14",
+		"section": "scenarios",
+		"section_label": "Situational Scenarios",
+		"question_text": "You're watching the news. A city flood has displaced 10,000 families. Which of these responses most matches how you'd want to help?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Design a better early warning and evacuation system so this never happens again",
+				"dimension_weights": { "C": 1.0, "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Analyse the disaster data to understand what failed and write a report for policymakers",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Organise a relief camp, coordinate volunteers, and make sure people get what they need",
+				"dimension_weights": { "S": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Help rebuild — physically working on infrastructure, shelters, and essential services",
+				"dimension_weights": { "T": 1.0, "P": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Use your platform to raise awareness and donations for affected families",
+				"dimension_weights": { "C": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Research climate-resilient urban planning models that could prevent this in the future",
+				"dimension_weights": { "A": 1.0, "T": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q15",
+		"section": "scenarios",
+		"section_label": "Situational Scenarios",
+		"question_text": "A friend comes to you struggling — they failed a big exam, their parents are upset, and they feel like a failure. What's your instinct?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Sit with them, listen fully, and make sure they feel heard before saying anything",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Help them figure out exactly what went wrong and build a better study plan",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Distract them with something fun and creative — help them get out of their head",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Ask questions to help them think through it themselves — coach them through it",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Remind them of all their strengths and encourage them to get back up quickly",
+				"dimension_weights": { "S": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Suggest a concrete next action — contact the teacher, retake the exam, use a resource",
+				"dimension_weights": { "T": 1.0, "E": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q16",
+		"section": "scenarios",
+		"section_label": "Situational Scenarios",
+		"question_text": "You have the chance to start a project of your choice with full support. Which one do you pick?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Build an app that solves a problem you've personally experienced",
+				"dimension_weights": { "T": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Create a documentary or short film about something you care deeply about",
+				"dimension_weights": { "C": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Run a research experiment to test a hypothesis you've always been curious about",
+				"dimension_weights": { "A": 1.0, "T": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Design and run a workshop to teach younger students a skill you love",
+				"dimension_weights": { "S": 1.0, "C": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Launch a community initiative that addresses a local environmental issue",
+				"dimension_weights": { "S": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Design a physical product — something you can hold, use, and show people",
+				"dimension_weights": { "C": 1.0, "T": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q17",
+		"section": "scenarios",
+		"section_label": "Situational Scenarios",
+		"question_text": "You're at a party and someone asks, 'So what are you into?' Which of these comes out of your mouth first?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "I love making things — design, art, videos, whatever I can get creative with",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "I'm really into tech — I like understanding how things are built",
+				"dimension_weights": { "T": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "I like thinking about systems and data — understanding how things actually work",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "I love being around people — I'm a bit obsessed with understanding what makes them tick",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "I'm thinking about starting something — I want to build my own thing one day",
+				"dimension_weights": { "E": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "I'm really into sport / fitness / being active — it's a big part of my life",
 				"dimension_weights": { "P": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q18",
+		"section": "scenarios",
+		"section_label": "Situational Scenarios",
+		"question_text": "Your school gives every student a 20-minute slot to present to the whole school. What do you present?",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "A creative project — an artwork, a short film, a performance, or a design piece",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "A science or data experiment I ran myself — with real findings",
+				"dimension_weights": { "A": 1.0, "T": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "A talk about a cause I care about — something the school needs to hear",
+				"dimension_weights": { "S": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "A business idea or startup pitch with a prototype or plan",
+				"dimension_weights": { "E": 1.0, "T": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "A documentary or interview series — stories of real people doing interesting things",
+				"dimension_weights": { "C": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "A thought experiment or philosophical question — something that challenges how we think",
+				"dimension_weights": { "A": 1.0, "C": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q19",
+		"section": "subjects_skills",
+		"section_label": "Subjects & Skills Snapshot",
+		"question_text": "Which subjects have you genuinely enjoyed (not just been good at, but actually liked)?",
+		"instruction": "Pick all that apply.",
+		"question_type": "multi_select",
+		"is_scored": true,
+		"is_skippable": true,
+		"options": [
+			{
+				"index": 0,
+				"text": "Mathematics",
+				"dimension_weights": { "A": 1.0, "T": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Physics",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Biology / Life Sciences",
+				"dimension_weights": { "A": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Chemistry",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Computer Science / IT",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "English / Literature / Languages",
+				"dimension_weights": { "C": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 6,
+				"text": "Art / Design / Craft",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 7,
+				"text": "History / Geography / Social Studies",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 8,
+				"text": "Economics / Business Studies / Accounts",
+				"dimension_weights": { "E": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 9,
+				"text": "Physical Education",
+				"dimension_weights": { "P": 1.0 }
+			},
+			{
+				"index": 10,
+				"text": "Music / Performing Arts",
+				"dimension_weights": { "C": 1.0, "P": 1.0 }
+			},
+			{
+				"index": 11,
+				"text": "Psychology / Sociology (if available)",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q20",
+		"section": "subjects_skills",
+		"section_label": "Subjects & Skills Snapshot",
+		"question_text": "Which of these skills feels most natural to you right now?",
+		"instruction": "Pick your top 3.",
+		"question_type": "multi_select",
+		"max_selections": 3,
+		"is_scored": true,
+		"is_skippable": true,
+		"options": [
+			{
+				"index": 0,
+				"text": "Writing or storytelling",
+				"dimension_weights": { "C": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Public speaking or persuading people",
+				"dimension_weights": { "S": 1.0, "E": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Working with numbers, spreadsheets, or data",
+				"dimension_weights": { "A": 1.0, "T": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Drawing, designing, or visual thinking",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Listening and empathising with people",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Fixing, building, or assembling physical things",
+				"dimension_weights": { "T": 1.0, "P": 1.0 }
+			},
+			{
+				"index": 6,
+				"text": "Coding, technology, or figuring out software",
+				"dimension_weights": { "T": 1.0 }
+			},
+			{
+				"index": 7,
+				"text": "Planning, organising, and project managing",
+				"dimension_weights": { "E": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 8,
+				"text": "Performing — acting, singing, dancing, presenting",
+				"dimension_weights": { "C": 1.0, "P": 1.0 }
+			},
+			{
+				"index": 9,
+				"text": "Researching and synthesising complex information",
+				"dimension_weights": { "A": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q21",
+		"section": "career_awareness",
+		"section_label": "Career Awareness Check",
+		"question_text": "How many of these careers have you heard of before?",
+		"instruction": "Select all you recognise.",
+		"question_type": "multi_select",
+		"is_scored": false,
+		"is_skippable": true,
+		"options": [
+			{
+				"index": 0,
+				"text": "UX Designer",
+				"dimension_weights": {}
+			},
+			{
+				"index": 1,
+				"text": "Aerospace Engineer",
+				"dimension_weights": {}
+			},
+			{
+				"index": 2,
+				"text": "Penetration Tester (Ethical Hacker)",
+				"dimension_weights": {}
+			},
+			{
+				"index": 3,
+				"text": "Genomic Counselor",
+				"dimension_weights": {}
+			},
+			{
+				"index": 4,
+				"text": "Urban Planner",
+				"dimension_weights": {}
+			},
+			{
+				"index": 5,
+				"text": "Esports Coach",
+				"dimension_weights": {}
+			},
+			{
+				"index": 6,
+				"text": "Climate Change Analyst",
+				"dimension_weights": {}
+			},
+			{
+				"index": 7,
+				"text": "Robotics Engineer",
+				"dimension_weights": {}
+			},
+			{
+				"index": 8,
+				"text": "Forensic Psychologist",
+				"dimension_weights": {}
+			},
+			{
+				"index": 9,
+				"text": "Marine Biologist",
+				"dimension_weights": {}
+			},
+			{
+				"index": 10,
+				"text": "Prompt Engineer",
+				"dimension_weights": {}
+			},
+			{
+				"index": 11,
+				"text": "Sports Physiotherapist",
+				"dimension_weights": {}
+			}
+		]
+	},
+	{
+		"code": "Q22",
+		"section": "career_awareness",
+		"section_label": "Career Awareness Check",
+		"question_text": "When you think about careers, which of these best describes your current mental model?",
+		"question_type": "single_select",
+		"is_scored": false,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "I think there are maybe 10–15 real career options",
+				"dimension_weights": {}
+			},
+			{
+				"index": 1,
+				"text": "I know there are many careers but I can only think of 20–30",
+				"dimension_weights": {}
+			},
+			{
+				"index": 2,
+				"text": "I know there's a huge range and I want to explore all of it",
+				"dimension_weights": {}
+			},
+			{
+				"index": 3,
+				"text": "I already know the field I want — I just need to find my specific path within it",
+				"dimension_weights": {}
+			}
+		]
+	},
+	{
+		"code": "Q23",
+		"section": "final_signals",
+		"section_label": "Final Signal Questions",
+		"question_text": "If you had to choose, would you rather:",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "Build things (products, systems, tools, structures)",
+				"dimension_weights": { "T": 1.0, "C": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "Understand things (research, study, analyse, discover)",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "Help people (support, teach, heal, guide)",
+				"dimension_weights": { "S": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "Lead things (start, grow, manage, change)",
+				"dimension_weights": { "E": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "Protect things (environment, rights, health, culture)",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "Express things (create, perform, design, tell stories)",
+				"dimension_weights": { "C": 1.0, "P": 1.0 }
+			}
+		]
+	},
+	{
+		"code": "Q24",
+		"section": "final_signals",
+		"section_label": "Final Signal Questions",
+		"question_text": "One last one. Read this description and pick the one that most excites you:",
+		"question_type": "single_select",
+		"is_scored": true,
+		"is_skippable": false,
+		"options": [
+			{
+				"index": 0,
+				"text": "You wake up and spend your day building digital systems, training AI models, or solving engineering problems.",
+				"dimension_weights": { "T": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 1,
+				"text": "You spend your day in a studio — directing, designing, writing, or bringing creative ideas to life.",
+				"dimension_weights": { "C": 1.0 }
+			},
+			{
+				"index": 2,
+				"text": "You work in a lab or hospital — researching diseases, developing drugs, or helping patients.",
+				"dimension_weights": { "A": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 3,
+				"text": "You sit in a room full of data and your job is to find the patterns nobody else can see.",
+				"dimension_weights": { "A": 1.0 }
+			},
+			{
+				"index": 4,
+				"text": "You're in the field, in government offices, or in classrooms — working on how society functions.",
+				"dimension_weights": { "S": 1.0, "A": 1.0 }
+			},
+			{
+				"index": 5,
+				"text": "You're building your own thing — a startup, a platform, a movement, a brand.",
+				"dimension_weights": { "E": 1.0 }
+			},
+			{
+				"index": 6,
+				"text": "You work outdoors or in research institutions trying to fix the planet.",
+				"dimension_weights": { "A": 1.0, "S": 1.0 }
+			},
+			{
+				"index": 7,
+				"text": "Your work is physical — sport, performance, hands-on craftsmanship.",
+				"dimension_weights": { "P": 1.0, "T": 1.0 }
 			}
 		]
 	}
