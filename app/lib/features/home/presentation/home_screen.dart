@@ -50,7 +50,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final selectedIndex = _calculateSelectedIndex(context);
 
     return Scaffold(

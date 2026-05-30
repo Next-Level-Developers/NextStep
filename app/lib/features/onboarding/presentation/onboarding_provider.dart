@@ -217,8 +217,6 @@ class OnboardingNotifier extends _$OnboardingNotifier {
     final currentQuestion = currentState.currentQuestion;
     if (currentQuestion == null) return;
 
-    final currentCode = currentQuestion.code;
-
     // Submit skipped answer in background
     _submitAnswerInBackground(
       currentState.session!.sessionId,

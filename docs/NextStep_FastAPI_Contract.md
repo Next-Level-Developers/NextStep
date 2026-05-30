@@ -1265,7 +1265,7 @@ Full career detail page.
   "success": true,
   "data": {
     "id": "uuid",
-    "slug": "ux-designer",
+    "slug": " ",
     "name": "UX Designer",
     "one_liner": "You design how apps and websites feel to use.",
     "domain": { "slug": "design-visual-arts", "name": "Design & Visual Arts", "short_name": "Design" },
