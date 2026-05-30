@@ -10,7 +10,7 @@ import '../../onboarding/domain/interest_profile_entity.dart';
 
 /// Provider for the active interest profile.
 final interestProfileProvider =
-    FutureProvider<InterestProfileEntity>((ref) async {
+    FutureProvider.autoDispose<InterestProfileEntity>((ref) async {
   final source = ref.watch(profilerRemoteSourceProvider);
   return source.getInterestProfile();
 });

@@ -37,7 +37,7 @@ async def list_roadmaps(
     """List all roadmaps for the current user."""
     stmt = (
         select(Roadmap)
-        .options(selectinload(Roadmap.career), selectinload(Roadmap.steps))
+        .options(selectinload(Roadmap.career).selectinload(Career.domain), selectinload(Roadmap.steps))
         .where(Roadmap.user_id == current_user.id, Roadmap.is_active == True)
         .order_by(Roadmap.generated_at.desc())
     )
@@ -185,7 +185,7 @@ async def progress_summary(
     """Summary across all roadmaps for the Progress Tracker dashboard."""
     stmt = (
         select(Roadmap)
-        .options(selectinload(Roadmap.career), selectinload(Roadmap.steps))
+        .options(selectinload(Roadmap.career).selectinload(Career.domain), selectinload(Roadmap.steps))
         .where(Roadmap.user_id == current_user.id, Roadmap.is_active == True)
     )
     result = await db.execute(stmt)
@@ -239,7 +239,7 @@ async def get_roadmap(
     """Get a roadmap with all steps and progress."""
     stmt = (
         select(Roadmap)
-        .options(selectinload(Roadmap.career), selectinload(Roadmap.steps))
+        .options(selectinload(Roadmap.career).selectinload(Career.domain), selectinload(Roadmap.steps))
         .where(Roadmap.id == roadmap_id, Roadmap.user_id == current_user.id)
     )
     result = await db.execute(stmt)
